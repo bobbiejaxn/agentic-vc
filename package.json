@@ -1,0 +1,25 @@
+{
+  "name": "vc-portfolio-os",
+  "version": "1.0.0",
+  "description": "VC Portfolio Intelligence Platform",
+  "main": "index.js",
+  "scripts": {
+    "dev": "convex dev",
+    "deploy": "convex deploy"
+  },
+  "keywords": [
+    "vc",
+    "portfolio",
+    "ai",
+    "convex"
+  ],
+  "author": "VC Portfolio OS Team",
+  "license": "MIT",
+  "devDependencies": {
+    "convex": "^1.16.4"
+  },
+  "dependencies": {
+    "@convex-dev/auth": "^0.0.90",
+    "dotenv": "^17.2.3"
+  }
+}

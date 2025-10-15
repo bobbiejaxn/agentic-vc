@@ -380,13 +380,18 @@ export const processDocument = action({
 
 ### Week 4: AI Agent Integration
 
+**Important**:
+
+- **Mistral OCR** uses `mistral-ocr-2505` model for document text extraction
+- **Google ADK Agents** use `gemini-2.5-flash` model for data extraction and formatting
+
 #### Day 22-24: Google Agent Development Kit (ADK) Setup
 
 ```typescript
 // convex/ai/agents.ts
 import { action } from "./_generated/server";
 import { v } from "convex/values";
-import { Agent } from "@google-cloud/aiplatform";
+import { LlmAgent, SequentialAgent } from "@google-cloud/aiplatform";
 
 export const extractData = action({
   args: {
@@ -398,29 +403,42 @@ export const extractData = action({
     });
     if (!document) throw new Error("Document not found");
 
-    // Initialize Google ADK Agent
-    const agent = new Agent({
-      projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
-      location: process.env.GOOGLE_CLOUD_LOCATION,
-      agentId: process.env.VC_PORTFOLIO_AGENT_ID,
+    // Initialize Google ADK Retriever Agent (uses Gemini 2.5 Flash)
+    const retrieverAgent = new LlmAgent({
+      model: "gemini-2.5-flash",
+      name: "document_retriever",
+      description: "Retrieves and preprocesses document data from OCR output",
+      instruction: "Extract raw financial data from OCR markdown content...",
+      output_key: "raw_document_data",
     });
 
-    // Portfolio extraction agent using ADK
-    const portfolioAgent = new PortfolioExtractionAgent({
-      document: document.markdownContent,
-      documentType: document.documentType,
-      agent: agent,
+    // Initialize Google ADK Formatter Agent (uses Gemini 2.5 Flash)
+    const formatterAgent = new LlmAgent({
+      model: "gemini-2.5-flash",
+      name: "data_formatter",
+      description: "Formats extracted data into structured Tier 1 schema",
+      instruction: "Structure financial metrics into Tier 1 schema...",
+      output_key: "formatted_metrics",
     });
 
-    const extractionResult = await portfolioAgent.extract();
+    // Sequential workflow orchestration
+    const workflow = new SequentialAgent({
+      name: "extraction_pipeline",
+      sub_agents: [retrieverAgent, formatterAgent],
+    });
+
+    const extractionResult = await workflow.execute({
+      document_content: document.markdownContent,
+      document_type: document.documentType,
+    });
 
     // Store extraction results
     await ctx.runMutation("extractions:create", {
       documentId: args.documentId,
       extractionType: "fund_performance",
-      extractedData: extractionResult.data,
+      extractedData: extractionResult.formatted_metrics,
       confidenceScore: extractionResult.confidence,
-      agentUsed: "google-adk-portfolio-agent",
+      agentUsed: "google-adk-gemini-2.5-flash",
     });
 
     // Update document status
@@ -456,44 +474,64 @@ export const orchestrateExtraction = action({
       location: process.env.GOOGLE_CLOUD_LOCATION,
     });
 
-    // Initialize multiple specialized agents
+    // Initialize multiple specialized agents (all using Gemini 2.5 Flash)
     const agents = [
-      new PortfolioExtractionAgent({
-        agentId: process.env.PORTFOLIO_EXTRACTION_AGENT_ID,
-        orchestrator: orchestrator,
+      new LlmAgent({
+        model: "gemini-2.5-flash",
+        name: "portfolio_extractor",
+        description: "Extracts portfolio company data from financial documents",
+        instruction:
+          "Extract portfolio company information from OCR content...",
+        output_key: "portfolio_data",
       }),
-      new FinancialMetricsAgent({
-        agentId: process.env.FINANCIAL_METRICS_AGENT_ID,
-        orchestrator: orchestrator,
+      new LlmAgent({
+        model: "gemini-2.5-flash",
+        name: "financial_metrics_analyzer",
+        description: "Analyzes and extracts financial metrics",
+        instruction:
+          "Extract financial metrics like IRR, MOIC, DPI from content...",
+        output_key: "financial_metrics",
       }),
-      new RiskAnalysisAgent({
-        agentId: process.env.RISK_ANALYSIS_AGENT_ID,
-        orchestrator: orchestrator,
+      new LlmAgent({
+        model: "gemini-2.5-flash",
+        name: "risk_analyzer",
+        description: "Performs risk analysis on portfolio data",
+        instruction: "Analyze risk factors and concentration from portfolio...",
+        output_key: "risk_analysis",
       }),
-      new PerformanceAnalysisAgent({
-        agentId: process.env.PERFORMANCE_ANALYSIS_AGENT_ID,
-        orchestrator: orchestrator,
+      new LlmAgent({
+        model: "gemini-2.5-flash",
+        name: "performance_analyzer",
+        description: "Analyzes fund and portfolio performance",
+        instruction: "Calculate performance metrics and trends...",
+        output_key: "performance_analysis",
       }),
-      new ComplianceAgent({
-        agentId: process.env.COMPLIANCE_AGENT_ID,
-        orchestrator: orchestrator,
+      new LlmAgent({
+        model: "gemini-2.5-flash",
+        name: "compliance_checker",
+        description: "Checks compliance and regulatory requirements",
+        instruction: "Verify compliance with regulatory requirements...",
+        output_key: "compliance_check",
       }),
     ];
 
     // Execute agents in parallel using ADK orchestration
     const agentPromises = agents.map((agent) =>
-      agent.process(document.markdownContent, document.documentType)
+      agent.execute({
+        document_content: document.markdownContent,
+        document_type: document.documentType,
+      })
     );
 
     const results = await Promise.all(agentPromises);
 
     // Aggregate results
     const aggregatedResult = {
-      fundMetrics: results[0].data,
-      financialMetrics: results[1].data,
-      riskAnalysis: results[2].data,
-      performanceAnalysis: results[3].data,
-      complianceCheck: results[4].data,
+      portfolioData: results[0].portfolio_data,
+      financialMetrics: results[1].financial_metrics,
+      riskAnalysis: results[2].risk_analysis,
+      performanceAnalysis: results[3].performance_analysis,
+      complianceCheck: results[4].compliance_check,
     };
 
     // Store aggregated results
@@ -502,7 +540,7 @@ export const orchestrateExtraction = action({
       extractionType: "comprehensive",
       extractedData: aggregatedResult,
       confidenceScore: Math.min(...results.map((r) => r.confidence)),
-      agentUsed: "google-adk-multi-agent-orchestrator",
+      agentUsed: "google-adk-gemini-2.5-flash-multi-agent",
     });
   },
 });

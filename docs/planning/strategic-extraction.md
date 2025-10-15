@@ -316,3 +316,78 @@ Your comprehensive extraction capability isn't just a cost - it's building the m
 Transform from "expensive data extraction service" to "exclusive investment intelligence network." The extraction costs become your competitive moat - the more comprehensive your data, the more valuable your insights, the higher your pricing power.
 
 **Start with personal returns tracking to prove value, then upsell to portfolio optimization and network intelligence.** This turns your current cost center into a €10M+ ARR opportunity within 3 years.
+
+---
+
+## Extraction Architecture
+
+### Google ADK Multi-Agent Pattern
+
+The extraction system uses Google's Agent Development Kit (ADK) with a multi-agent architecture:
+
+1. **Retriever Agent**
+
+   - Model: Gemini 2.5 Flash
+   - Purpose: Extract raw data from Mistral OCR output
+   - Input: Document chunks from `enhancedHybridChunks` table
+   - Output: Raw financial data points
+
+2. **Formatter Agent**
+
+   - Model: Gemini 2.5 Flash
+   - Purpose: Structure raw data into Tier 1 schema
+   - Input: Raw data from retriever agent
+   - Output: Structured JSON matching `Tier1FinancialMetrics` schema
+
+3. **Sequential Workflow**
+   - Orchestrates retriever → formatter pipeline
+   - Stores results in `agentExtractionResults` table
+   - Tracks confidence scores and processing time
+
+### Technology Stack
+
+- **OCR**: Mistral OCR API (`mistral-ocr-2505`)
+- **Agents**: Google ADK (`google.adk.agents`)
+- **Model**: Gemini 2.5 Flash (fast, cost-effective)
+- **Database**: Convex (real-time, vector search)
+- **Chunking**: Convex hybrid chunking
+
+### Extraction Pipeline
+
+```
+Document Upload
+↓
+Mistral OCR Processing
+↓
+Enhanced Hybrid Chunking (Convex)
+↓
+Vector Embedding Generation
+↓
+Google ADK Retriever Agent
+↓
+Google ADK Formatter Agent
+↓
+Store in agentExtractionResults
+↓
+Update Portfolio Metrics
+```
+
+### Implementation Priority
+
+**Phase 1: Core Extraction (Month 1)**
+
+- Mistral OCR integration
+- Google ADK agent setup
+- Tier 1 extraction (Fund Performance: 20 fields)
+
+**Phase 2: Enhanced Extraction (Month 2)**
+
+- Personal Portfolio Metrics (25 fields)
+- Portfolio Company Essentials (35 fields)
+- 95% accuracy validation
+
+**Phase 3: Production Ready (Month 3)**
+
+- Error handling and retry logic
+- Confidence scoring
+- Quality validation

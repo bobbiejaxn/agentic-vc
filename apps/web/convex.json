@@ -1,0 +1,4 @@
+{
+  "functions": "../../convex/",
+  "generateTS": "../../convex/_generated"
+}

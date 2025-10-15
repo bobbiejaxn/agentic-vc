@@ -1,179 +1,122 @@
-# CLAUDE.md
+# Project Overview
+This is a Google Agent Development Kit (ADK) SaaS template featuring:
+- Next.js 15 web application for chat interface
+- Google ADK-powered competitor analysis agent system
+- Real-time streaming chat with agent responses
+- Multi-agent architecture with specialized sub-agents
+- Session state management and workflow orchestration
 
-This file provides guidance to _Claude Code_ (AI Software Engineer) when working with code in this repository.
+# Technology Stack
+## Frontend (apps/web)
+- Framework: Next.js 15 with App Router
+- Language: TypeScript
+- Styling: Tailwind CSS + shadcn/ui
+- Database: Supabase + Drizzle ORM
+- Authentication: Supabase Auth
+- Payments: Stripe
+- Chat Interface: Real-time streaming with agent progress tracking
 
-As the AI Software Engineer, your role is to collaborate closely with the Product Manager (the one prompting you) to deliver high-quality, client-focused solutions. The Product Manager is results-driven, focused on client needs, and does not work directly with code. Your responsibility is to translate product requirements into well-structured, maintainable code that follows best practices in UI, UX, and software engineering.
+## Backend (apps/competitor-analysis-agent)
+- Framework: Google Agent Development Kit (ADK)
+- Language: Python 3.10+ with uv package management
+- Agent Types: LlmAgent, SequentialAgent, ParallelAgent, LoopAgent
+- Models: Gemini 2.5 Flash/Pro for LLM reasoning
+- Tools: Built-in tools (google_search, code_execution), function tools
+- Deployment: Google Cloud Agent Engine with AgentOps monitoring
+- Session Management: InMemorySessionService with session state flow
 
-**Key guidelines:**
-
-- Use claude sub agent team i.e. [agent-coordinator](.claude/agents/agent-coordinator.md)
-- Use MCP tools appropriately to support development (e.g. chrome mcp, browser automation to verify implementations)
-- Maintain clear structure, logical organization, consistent naming conventions, and adhere to DRY principles.
-- Keep code clean, readable, and maintainable, generally within 400–500 lines per file. For complex systems, break into focused modules that stay within this limit.
-- **Strategic Evolution**: When fundamental architectural improvements are needed (e.g., moving from monolithic to modular systems), create well-structured new components alongside existing ones. Use feature flags and gradual migration to transition cleanly without breaking existing functionality.
-- Never Assume, always verfiy.
-
-**Guiding Principles for the database**
-
-1. **Intelligent Schema Evolution**: Regularly consolidate and optimize schema, removing redundant tables created during development iterations
-2. Single Source of Truth - No data duplication within the active schema
-3. Type Safety - Proper data types, no string-based numbers
-4. **Modular Table Design**: Organize tables by functional domains (documents, chunks, extractions, analytics) with clear relationships
-5. Performance First - Optimized query patterns from the start
-6. Security - Clear ownership and access patterns
-
-**Collaboration and workflow best practices:**
-
-- Begin each task with a clear understanding of the requirements. Ask clarifying questions to fully grasp constraints, edge cases, and business context before coding.
-- Follow a structured approach: analyze context and requirements, plan solutions carefully, then implement. Avoid jumping directly into code without preparation.
-- Always reference the current schema when writing or updating functions to prevent schema drift, unused variables, or misalignment between code and data structures.
-- **Schema Compliance**: Follow the schema compliance rule (`.cursor/rules/schema-compliance.mdc`) - NEVER create new tables or fields without explicit user approval. Always check `ai_docs/prep/initial_data_models.md` and `convex/schema.ts` before making database changes.
-- Use frequent context resets (e.g., `/clear` commands) to prevent confusion from accumulating context drift during extended sessions.
-- **Task-Based Development**: Break complex architectural improvements into focused, well-defined tasks with clear acceptance criteria and dependencies.
-- **Gradual Architecture Evolution**: Implement new architectural patterns alongside existing systems using feature flags, allowing for smooth transitions and rollback capabilities.
-- Leverage AI to automate boilerplate, testing, refactoring, security checks, and documentation, freeing the Product Manager and human engineers to focus on higher-level strategy and client needs.
-- Use clear, consistent naming conventions and avoid over-abstraction to keep codebase accessible to both AI and human collaborators.
-- Maintain strong quality controls: adhere to testing, linting, type checking, and ensure all AI-generated code is reviewed thoroughly before integration.
-- Treat each AI interaction as a learning opportunity. Request explanations for unfamiliar patterns or choices and review trade-offs presented by the AI.
-- Actively review and push back on overly complex or suboptimal solutions suggested by Claude Code to maintain maintainability and alignment with project goals.
-- Include meaningful comments and documentation where necessary to ensure clarity across the team.
-- The `any` type in TypeScript defeats the purpose of type checking by allowing any type without validation. Specific types should be used instead to maintain code quality and catch type-related errors during development. Refer to [avoid-any-type-ts-rule](.cursor/rules/avoid-any-type-ts.mdc)
-
-**Goals:**
-
-- Ensure the codebase is easy to navigate and maintain for both AI and human software engineers.
-- Prioritize clarity, maintainability, and alignment with product objectives.
-- Maintain human decision authority at all times, using Claude Code as an intelligent assistant rather than an autonomous coder.
-- Foster continuous learning and improvement through collaborative interactions.
-
-By adhering to these principles, the collaboration between the Product Manager and Claude Code will be efficient, aligned with client goals, and result in a clean, maintainable, and scalable codebase.
-
-## Common Development Commands
-
-### Development Environment
-
+# Development Commands
 ```bash
-npm run dev                # Start both frontend (Vite) and backend (Convex) servers
-npm run dev:frontend       # Start only frontend server
-npm run dev:backend        # Start only backend server
+# Root-level commands (recommended)
+npm run install      # Install dependencies for both apps
+npm run dev          # Start both frontend and API development servers
+npm run dev:frontend # Start frontend development server only
+npm run dev:api      # Start API development server only
+npm run adk:web      # Start ADK web interface
+
+# Per-app commands (if needed)
+cd apps/web
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run type-check   # Type checking
+
+# ADK agent system
+cd apps/competitor-analysis-agent
+uv run app.py        # Start agent server
+uv run python -m competitor_analysis_agent  # Alternative execution
 ```
 
-## Testing Strategy
+# Code Style & Conventions
+## Frontend (Next.js/TypeScript)
+- Use TypeScript strict mode with complete type annotations
+- Prefer functional components with hooks
+- Use server actions for data mutations
+- Follow shadcn/ui component patterns
+- Always run `npm run typecheck` after changes
 
-### E2E Testing with Playwright
+## Backend (ADK/Python)
+- Use type hints and Pydantic models
+- Follow ADK patterns: LlmAgent, SequentialAgent, ParallelAgent, LoopAgent
+- Session state communication via `output_key` and `{placeholder}` patterns
+- Built-in tools: one per agent maximum (google_search, code_execution)
+- Function tools: multiple allowed per agent
+- Always export agents with `root_agent = my_agent` pattern
 
-- Visual regression tests for UI consistency
-- Accessibility testing with axe-playwright
-- Full user journey testing (upload → process → chat)
+# Project Structure
+- `apps/web/` - Next.js frontend with real-time chat interface
+- `apps/competitor-analysis-agent/` - ADK agent system with multi-agent workflow
+  - `agent.py` - Root agent (orchestrator)
+  - `sub_agents/` - Specialized agents for different tasks
+  - `agent_engine_app.py` - ADK application runner
+- `ai_docs/` - AI-generated documentation and task tracking
+- `ai_docs/templates/` - Task templates (task_template.md, python_task_template.md, adk_task_template.md)
 
-### Manual Testing Focus
+# ADK-Specific Patterns
+- Root agent acts as human consultant - gathers context and delegates
+- Session state flows through agents via `output_key` -> `{placeholder}` pattern
+- Agent hierarchy: Root -> SequentialAgent -> specialized sub-agents
+- Quality loops use LoopAgent with Action-Critic-Checker pattern
+- Universal design principles - avoid domain-specific hardcoding
 
-- Real financial documents (not synthetic data)
-- Actual API failure scenarios
-- Complete processing pipeline verification
+# Important Notes
+- Agent responses stream through SSE to frontend
+- Session state management critical for agent-to-agent communication
+- Follow workflow documents for session state key naming
+- Use Google Cloud authentication for Vertex AI/Gemini models
+- All agents must export as `root_agent` for ADK system discovery
 
-## Development Best Practices
+# Coding Standards & Best Practices
 
-### When Adding Features
+## TypeScript/Next.js Rules
+- **Type Safety**: Never use `any` type - use specific types, `Union` types, or `TypedDict`
+- **Next.js 15**: `params` and `searchParams` are Promises - always `await` them before use
+- **Server/Client Separation**: Never mix server-only imports (`next/headers`, `@/lib/supabase/server`) with client-safe utilities
+- **shadcn/ui**: Always prefer shadcn components over custom UI - check existing `@/components/ui/` first
+- **Client Components**: Use `'use client'` directive when needed, but avoid async client components
+- **Return Types**: Explicit return types required for all functions
+- **Drizzle ORM**: Use type-safe operators (`eq`, `inArray`, `and`, `or`) instead of raw SQL
 
-1. **Schema First**: Define Convex schema changes
-2. **Task-Based Planning**: Break into focused tasks with clear dependencies
-3. **Backend Functions**: Implement server-side logic with `withDevAuth` wrappers for development
-4. **Frontend Components**: Build UI with design system
-5. **Real-time Integration**: Connect with Convex subscriptions
-6. **Error Handling**: Proper user feedback for failures
-7. **Feature Flag Integration**: Use flags for gradual rollout
-8. **Performance Monitoring**: Track token usage, accuracy, and processing speed
-9. **[extraction-strategy](.cursor/rules/mg:extraction-strategy.mdc)**
-10. **[proactive-monitoring](.cursor/rules/mg:proactive-monitoring.mdc)**
-11. **[honesty](.cursor/rules/mg:honesty.mdc)**
-12. **[verfiy-frontend](.cursor/rules/mg:verfiy-frontend.mdc)**
-13. **[post-implementation-check](.cursor/rules/mg:post-impl-check.mdc)**
-14. **[git_workflow](.cursor/rules/mg:git_workflow.mdc)**
+## Python/ADK Rules  
+- **Type Annotations**: Complete type annotations required for all variables, functions, and parameters
+- **No `Any` Type**: Use specific types from libraries (e.g., `from google.genai.types import File`)
+- **Package Management**: Always use `uv` commands, never `pip install` directly
+- **Google AI**: Primary: `google-genai>=1.24.0`, Fallback: `vertexai>=1.38.0` (embeddings only)
+- **Dependencies**: Add to `pyproject.toml` then run `uv sync`, use dependency groups (`dev`, `test`, `lint`)
+- **Modern Syntax**: Use Python 3.10+ syntax (`dict[str, int]`, `list[str]`, `str | None`)
+- **Exception Chaining**: Use `raise ... from e` for proper exception chaining
+- **Function Returns**: Always provide return type annotations, including `-> None`
 
-### Development Authentication Best Practices
+## Database & Infrastructure
+- **Drizzle Migrations**: Create down migrations before running `npm run db:migrate`
+- **Environment**: Use `@/lib/config` over `os.getenv()` for configuration
+- **Authentication**: Use Google Cloud SDK authentication patterns
+- **File Management**: Always clean up uploaded files with `client.files.delete()`
 
-**ALWAYS use development authentication when working with authenticated functions**:
-
-1. **Set a dev user** before starting development work
-2. **Use `withDevAuth` wrappers** for all new Convex functions
-3. **Test with different roles** (admin, LP, GP, analyst) during development
-4. **Test subscription tiers** (free, professional, institutional) for feature access
-5. **AI Assistant Integration**: Set dev user before asking AI for help - AI can see app state and test functions
-6. **Update existing functions** to use `withDevAuth` for development compatibility
-
-**Function Development Pattern**:
-
-```typescript
-// Always wrap functions with dev auth for development
-export const myFunction = query({
-  handler: withDevAuth(async (ctx) => {
-    // Works in both development and production
-    const userId = await ctx.auth.getUserIdentity()?.subject;
-    // ... function logic
-  }),
-});
-```
-
-### Architectural Evolution
-
-1. **Gradual Migration**: Implement new systems alongside existing ones
-2. **Feature Flags**: Control rollout and enable quick rollback
-3. **Performance Validation**: Measure improvements before migration
-4. **Schema Consolidation**: Regular cleanup of redundant tables and fields
-5. **Modular Design**: Build independent, testable components
-
-### Code Quality
-
-- **TypeScript strict mode** - no `any` types
-- **No eslint-disable** comments
-- **Proper error boundaries** in React
-- **Environment validation** before API calls
-- **Real-time loading states** for async operations
-
-### Design System Compliance
-
-- **Always check** against design guidelines in `.cursor/rules/mg:design.mdc`, `.claude/agents/scandinavian-ui-architect.md`
-- **Use existing components** before creating new ones
-- **Follow 8pt grid spacing** religiously
-- **Maintain typography hierarchy** (4 sizes max)
-
-## Common Pitfalls to Avoid
-
-### Convex-specific
-
-- Don't use external APIs in mutations (use actions instead)
-- **ALWAYS use `withDevAuth` wrappers** for authenticated functions in development
-- Use `internal` functions for scheduled tasks
-- **Schema Evolution**: Don't create new tables when existing ones can be enhanced
-- **Performance**: Monitor token usage and optimize context selection
-- **Development Auth**: Use dev users to test different roles and permissions without real authentication
-
-### Frontend-specific
-
-- Don't bypass the design system "for convenience"
-- Avoid inline styles - use Tailwind utilities
-- Don't create new components without checking existing ones
-- Never use arbitrary Tailwind values
-- **Real-time Updates**: Display pipeline progress and partial results
-- [Frontend designer](.claude/agents/scandinavian-ui-architect.md)
-
-### Integration-specific
-
-- Don't assume API keys are present - check environment
-- Handle processing failures gracefully with user feedback
-- Never hardcode file paths or IDs - use Convex references
-- Don't forget to update both schema and migration logic
-- Don't forget to fix linters or ts errors
-- ALWAYS check what tables actually exist in the schema
-
-### Architecture Evolution Pitfalls
-
-- **Big Bang Changes**: Avoid replacing entire systems at once - use gradual migration
-- **Feature Flag Neglect**: Always implement feature flags for new architectural components
-- **Performance Regression**: Measure before and after architectural changes
-- **Complexity Creep**: Keep modular design principles when adding new features
-
-### Other Lessons Learned
-
-- /Users/michaelguiao/Projects/vc-os-convex/docs/lessons-learned
+## Code Quality Standards
+- **No ESLint Disables**: Fix issues instead of disabling rules
+- **No Type Ignores**: Address type issues properly instead of ignoring
+- **Early Returns**: Use early returns to reduce nesting
+- **Async/Await**: Use async/await patterns over Promise chains
+- **Commenting**: Minimal comments - code should be self-documenting
+- **Line Length**: Python 88 chars, TypeScript follow project standards
+- **Clean Imports**: Remove unused imports, use proper import grouping

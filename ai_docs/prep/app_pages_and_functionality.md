@@ -1,468 +1,164 @@
-# VC Portfolio OS - App Pages & Functionality
+## App Pages & Functionality Blueprint
 
-**Version**: 1.0  
-**Date**: January 15, 2025  
-**Author**: AI Development Team  
-**Status**: Ready for Implementation
-
----
-
-## 📱 **CORE APPLICATION STRUCTURE**
-
-### Navigation Architecture
-
-- **Primary Navigation**: Sidebar with main sections
-- **Secondary Navigation**: Top bar with user actions
-- **Breadcrumbs**: Clear page hierarchy
-- **Quick Actions**: Floating action buttons for key tasks
-
-### User Roles & Access
-
-- **Business Angels & LPs**: Full portfolio management access
-- **VC Fund Managers**: Fund management and LP reporting
-- **Family Office Directors**: Multi-vehicle portfolio oversight
-- **System Administrators**: Platform configuration and monitoring
+### App Summary  
+**End Goal:** Help entrepreneurs and business owners achieve comprehensive competitive intelligence and market analysis to make informed strategic decisions
+**Core Value Proposition:** Stop flying blind in the market by discovering what competitors are really doing - get comprehensive competitor analysis in minutes instead of expensive consultant fees
+**Target Users:** Entrepreneurs, business owners, market researchers, and strategic decision makers
+**Template Type:** adk-agent-saas
 
 ---
 
-## 🏠 **DASHBOARD & OVERVIEW PAGES**
+## 🌐 Universal SaaS Foundation
 
-### 1. Main Dashboard
+### Public Marketing Pages
+- **Landing Page** — `/` 
+  - Hero: "Stop Flying Blind. Discover What Your Competitors Are Really Doing"
+  - Problem highlight: "Get comprehensive competitor analysis in minutes instead of expensive consultant fees"
+  - Feature showcase: AI-powered competitive intelligence, market gap discovery, strategic insights
+  - Pricing: Free (3 analyses) → Basic ($19.99/month, 25 analyses) → Pro ($49.99/month, unlimited)
+  - CTA: "Start Your Competitive Analysis" driving to competitive intelligence chat interface
 
-**Purpose**: Central hub for portfolio overview and key metrics
-**Target Users**: All user types
-**Key Features**:
+- **Legal Pages** — `/privacy`, `/terms`, `/cookies`
+  - Privacy policy, Terms of service, Cookie policy
+  - Essential for GDPR compliance and SaaS operations
 
-- Portfolio performance summary
-- Recent document uploads and processing status
-- Key performance indicators (KPIs)
-- Quick action buttons
-- Recent activity feed
-- Alerts and notifications
-
-**Layout**:
-
-- Header with user profile and notifications
-- Sidebar navigation
-- Main content area with customizable widgets
-- Footer with system status
-
-### 2. Portfolio Overview
-
-**Purpose**: Comprehensive view of all investments across funds
-**Target Users**: Business Angels, LPs, Family Office Directors
-**Key Features**:
-
-- Total portfolio value and performance
-- Fund-by-fund breakdown
-- Performance metrics (IRR, MOIC, TVPI)
-- Cash flow projections
-- Risk metrics and concentration analysis
-- Export functionality
-
-**Layout**:
-
-- Summary cards at top
-- Detailed fund performance table
-- Interactive charts and graphs
-- Filter and search capabilities
-
-### 3. Fund Performance Dashboard
-
-**Purpose**: Detailed analysis of individual fund performance
-**Target Users**: VC Fund Managers, LPs
-**Key Features**:
-
-- Fund-level performance metrics
-- Portfolio company valuations
-- Co-investor analysis
-- Benchmark comparisons
-- Historical performance trends
-- Risk assessment
-
-**Layout**:
-
-- Fund header with key metrics
-- Performance charts and graphs
-- Portfolio company table
-- Co-investor network visualization
-- Risk analysis section
+### Authentication Flow
+- **Login** — `/auth/login` (Email/password, OAuth options including GitHub, Google)
+- **Sign Up** — `/auth/sign-up` (Account creation)  
+- **Forgot Password** — `/auth/forgot-password` (Password reset flow)
+- **Sign Up Success** — `/auth/sign-up-success` (Confirmation page)
 
 ---
 
-## 📊 **ANALYTICS & INTELLIGENCE PAGES**
+## ⚡ Core Application Pages
 
-### 4. Portfolio Analytics
+### Competitive Intelligence Interface
+- **Primary Analysis** — `/chat`
+  - Interactive business consultation with guided questioning
+  - Multi-agent competitive research pipeline (Planner → Researcher → Validator → Composer)
+  - Real-time competitive analysis generation with progress indicators
+  - Comprehensive competitor discovery (direct, indirect, emerging threats)
+  - Strategic recommendations and market gap identification
+  - Usage indicator showing tier limits and remaining analyses
 
-**Purpose**: Advanced analytics and insights
-**Target Users**: All user types
-**Key Features**:
+- **Analysis Sessions** — `/chat/[[...sessionId]]`
+  - Specific competitive analysis sessions with flexible routing
+  - Restore any previous competitive analysis for reference
+  - Continue or refine analysis with additional research
 
-- Performance attribution analysis
-- Sector and geography analysis
-- Vintage year comparisons
-- Risk-return analysis
-- Scenario modeling
-- Benchmark comparisons
+### Analysis Management
+- **History** — `/history`
+  - Complete competitive analysis sessions with business context and results
+  - Restore any previous competitive analysis to review findings and recommendations
+  - Export competitive intelligence reports as PDF with comprehensive business insights
 
-**Layout**:
-
-- Analytics navigation tabs
-- Interactive charts and graphs
-- Data tables with sorting/filtering
-- Export and sharing options
-
-### 5. Co-Investor Intelligence
-
-**Purpose**: Network analysis and co-investor insights
-**Target Users**: Business Angels, VC Fund Managers
-**Key Features**:
-
-- Co-investor quality scoring
-- Network relationship mapping
-- Introduction opportunities
-- Track record analysis
-- Deal flow insights
-- Relationship management
-
-**Layout**:
-
-- Network visualization
-- Co-investor profiles and scores
-- Relationship mapping
-- Introduction facilitation tools
-
-### 6. Market Intelligence
-
-**Purpose**: Market trends and sector analysis
-**Target Users**: All user types
-**Key Features**:
-
-- Sector performance trends
-- Market cycle analysis
-- Valuation benchmarks
-- Exit environment analysis
-- Funding market conditions
-- Competitive landscape
-
-**Layout**:
-
-- Market overview dashboard
-- Sector-specific analysis
-- Trend charts and graphs
-- Benchmark comparisons
-- Market reports and insights
+### User Account  
+- **Profile** — `/profile` (Consolidated Hub)
+  - Account settings: name, email, business preferences
+  - Subscription management: current tier, analysis usage tracking, upgrade/downgrade
+  - Billing: payment methods, invoice history, competitive analysis usage analytics
+  - Notification preferences for analysis completion and research updates
+  - Tier-based competitive intelligence features clearly displayed
 
 ---
 
-## 📄 **DOCUMENT MANAGEMENT PAGES**
+## 💰 Business Model Pages
 
-### 7. Document Upload
+### Billing & Subscription
+- **Billing Management** — Integrated within `/profile`
+  - Subscription management, payment methods
+  - Usage tracking and tier limits (competitive analyses, reports, features)
+  - Billing history and invoices
+  - Stripe integration for subscription lifecycle management
 
-**Purpose**: Upload and process fund reports and documents
-**Target Users**: All user types
-**Key Features**:
+### Tier-Based Feature Access
+**Free Tier ($0/month)**
+- 3 competitive analyses per month
+- Basic competitor discovery and insights
+- Community support
 
-- Drag-and-drop file upload
-- Multiple file format support
-- Document type selection
-- Processing status tracking
-- Quality validation
-- Error handling and retry
+**Basic Tier ($19.99/month) - Most Popular**
+- 25 competitive analyses per month
+- Industry trend reports
+- Email summaries of competitive insights
+- Priority support
 
-**Layout**:
-
-- Upload area with progress indicators
-- File type selection
-- Processing status display
-- Quality validation results
-- Error messages and retry options
-
-### 8. Document Library
-
-**Purpose**: Manage and organize uploaded documents
-**Target Users**: All user types
-**Key Features**:
-
-- Document listing and search
-- Processing status tracking
-- Quality scores and validation
-- Document metadata
-- Download and sharing
-- Archive and deletion
-
-**Layout**:
-
-- Document table with filters
-- Status indicators
-- Quality scores
-- Action buttons
-- Search and sort functionality
-
-### 9. Extraction Results
-
-**Purpose**: Review and validate extracted data
-**Target Users**: All user types
-**Key Features**:
-
-- Extracted data display
-- Confidence scores
-- Validation tools
-- Data correction interface
-- Export options
-- Quality reports
-
-**Layout**:
-
-- Data table with extracted information
-- Confidence indicators
-- Validation tools
-- Correction interface
-- Export and sharing options
+**Pro Tier ($49.99/month)**
+- Unlimited competitive analyses
+- Custom research parameters and deep analysis
+- Advanced strategic recommendations
+- Priority support and early feature access
 
 ---
 
-## ⚙️ **SETTINGS & ADMINISTRATION PAGES**
+## 📱 Navigation Structure  
 
-### 10. User Profile & Settings
+### Main Sidebar (Responsive)
+- **Analysis** - Primary interface for competitive intelligence research and consultation
+- **History** - Previous competitive analysis sessions and reports
+- **Profile** - Account settings, subscription management, billing, and business preferences
 
-**Purpose**: Manage user account and preferences
-**Target Users**: All user types
-**Key Features**:
-
-- Profile information
-- Notification preferences
-- Security settings
-- Subscription management
-- Data export
-- Account deletion
-
-**Layout**:
-
-- Profile information form
-- Settings tabs
-- Notification preferences
-- Security options
-- Subscription details
-
-### 11. Fund Management
-
-**Purpose**: Manage fund information and settings
-**Target Users**: VC Fund Managers, System Administrators
-**Key Features**:
-
-- Fund profile management
-- LP management
-- Reporting settings
-- Access controls
-- Integration settings
-- Performance tracking
-
-**Layout**:
-
-- Fund information form
-- LP management table
-- Settings and preferences
-- Access control matrix
-- Integration options
-
-### 12. System Administration
-
-**Purpose**: Platform configuration and monitoring
-**Target Users**: System Administrators
-**Key Features**:
-
-- User management
-- System monitoring
-- Performance metrics
-- Error logging
-- Configuration settings
-- Maintenance tools
-
-**Layout**:
-
-- Admin dashboard
-- User management interface
-- System monitoring
-- Configuration panels
-- Maintenance tools
+### Mobile Navigation  
+- Collapsible sidebar with competitive analysis as default view
+- Quick access to analysis progress and status indicators
+- Swipe gestures for accessing history and profile
+- Optimized for business users conducting competitive research on-the-go
 
 ---
 
-## 🔍 **SEARCH & DISCOVERY PAGES**
+## 🔧 Next.js App Router Structure
 
-### 13. Global Search
+### Layout Groups
+```
+app/
+├── (public)/          # Marketing and legal pages
+├── (auth)/             # Authentication flow  
+├── (protected)/        # Main authenticated app
+└── api/                # Backend endpoints
+```
 
-**Purpose**: Search across all data and documents
-**Target Users**: All user types
-**Key Features**:
+### Complete Route Mapping
+**🌐 Public Routes**
+- `/` → Landing page with competitive intelligence value proposition
+- `/privacy` → Privacy policy
+- `/terms` → Terms of service  
+- `/cookies` → Cookie policy
 
-- Universal search functionality
-- Advanced filters
-- Search suggestions
-- Recent searches
-- Saved searches
-- Export results
+**🔐 Auth Routes**
+- `/auth/login` → User login
+- `/auth/sign-up` → User registration
+- `/auth/forgot-password` → Password reset
+- `/auth/sign-up-success` → Registration confirmation
 
-**Layout**:
+**🛡️ Protected Routes**  
+- `/chat` → Default competitive analysis interface
+- `/chat/[[...sessionId]]` → Specific analysis sessions with dynamic routing
+- `/history` → Previous competitive analysis sessions and reports
+- `/profile` → Consolidated account, billing, and subscription management
 
-- Search bar with suggestions
-- Filter sidebar
-- Results list
-- Pagination
-- Export options
-
-### 14. Data Explorer
-
-**Purpose**: Explore and analyze data relationships
-**Target Users**: All user types
-**Key Features**:
-
-- Interactive data exploration
-- Relationship mapping
-- Data visualization
-- Export capabilities
-- Sharing options
-- Collaboration tools
-
-**Layout**:
-
-- Data visualization area
-- Filter and control panels
-- Data table
-- Export and sharing options
-- Collaboration tools
+**🔧 API Routes**
+- `/api/run/route.ts` → Competitive analysis execution with multi-agent pipeline
+- `/api/sessions/route.ts` → Analysis session management and history
+- `/api/webhooks/stripe/route.ts` → Subscription and billing webhooks
 
 ---
 
-## 📱 **MOBILE-OPTIMIZED PAGES**
+## 🎯 MVP Functionality Summary
 
-### 15. Mobile Dashboard
+This blueprint delivers your core value proposition: **Stop flying blind in the market by discovering what competitors are really doing - comprehensive competitive analysis in minutes**
 
-**Purpose**: Mobile-optimized portfolio overview
-**Target Users**: All user types
-**Key Features**:
+**Phase 1 (Launch Ready):**
+- Universal SaaS foundation (auth, legal, responsive design)
+- Interactive business consultation with guided competitive analysis questioning
+- Multi-agent competitive research pipeline (Planner → Researcher → Validator → Composer)
+- Comprehensive competitor discovery including direct, indirect, and emerging threats
+- Strategic recommendations and market gap identification with PDF export
+- Tier-based subscription system with analysis limits and Stripe integration
 
-- Responsive design
-- Touch-optimized interactions
-- Key metrics display
-- Quick actions
-- Offline capabilities
-- Push notifications
+**Phase 2 (Growth Features):**  
+- Advanced industry-specific analysis templates
+- Competitive intelligence alerts and monitoring
+- API access for competitive analysis integration
+- Visual competitive positioning maps and trend analysis
 
-**Layout**:
-
-- Mobile navigation
-- Key metrics cards
-- Quick action buttons
-- Recent activity
-- Notifications
-
-### 16. Mobile Document Upload
-
-**Purpose**: Mobile document upload and processing
-**Target Users**: All user types
-**Key Features**:
-
-- Camera integration
-- File selection
-- Processing status
-- Quality validation
-- Error handling
-- Offline queue
-
-**Layout**:
-
-- Camera interface
-- File selection
-- Processing status
-- Quality indicators
-- Error messages
-
----
-
-## 🎯 **USER EXPERIENCE FLOWS**
-
-### Onboarding Flow
-
-1. **Welcome Screen**: Introduction to platform
-2. **Account Setup**: User profile and preferences
-3. **Fund Setup**: Add initial fund commitments
-4. **Document Upload**: Upload first documents
-5. **Processing**: Wait for document processing
-6. **Results Review**: Review extracted data
-7. **Dashboard**: Access main dashboard
-
-### Document Processing Flow
-
-1. **Upload**: Select and upload documents
-2. **Processing**: Monitor processing status
-3. **Validation**: Review quality scores
-4. **Correction**: Fix any errors
-5. **Integration**: Data integrated into portfolio
-6. **Notification**: User notified of completion
-
-### Portfolio Analysis Flow
-
-1. **Overview**: View portfolio summary
-2. **Drill Down**: Select specific fund or company
-3. **Analysis**: Review detailed metrics
-4. **Comparison**: Compare with benchmarks
-5. **Export**: Export reports or data
-6. **Share**: Share insights with team
-
----
-
-## 🔧 **TECHNICAL IMPLEMENTATION**
-
-### Page Components
-
-- **Header**: Navigation and user actions
-- **Sidebar**: Main navigation
-- **Content Area**: Page-specific content
-- **Footer**: System status and links
-
-### State Management
-
-- **Global State**: User authentication, preferences
-- **Page State**: Page-specific data and interactions
-- **Component State**: Local component state
-- **Cache State**: Optimized data caching
-
-### Performance Optimization
-
-- **Lazy Loading**: Load components on demand
-- **Code Splitting**: Split code by routes
-- **Caching**: Cache frequently accessed data
-- **Optimization**: Optimize images and assets
-
----
-
-## 📋 **PAGE DEVELOPMENT CHECKLIST**
-
-### Design Requirements
-
-- [ ] Responsive design for all screen sizes
-- [ ] Consistent with brand guidelines
-- [ ] Accessible design (WCAG 2.1 AA)
-- [ ] Performance optimized
-
-### Functionality Requirements
-
-- [ ] All user stories implemented
-- [ ] Error handling and validation
-- [ ] Loading states and feedback
-- [ ] Offline capabilities where needed
-
-### Technical Requirements
-
-- [ ] TypeScript implementation
-- [ ] Component testing
-- [ ] Performance testing
-- [ ] Security validation
-
----
-
-**Document Status**: Complete  
-**Next Review Date**: February 15, 2025  
-**Approval Required**: Product Management, Design Team, Engineering Leadership
+> **Next Step:** Ready for wireframe design with this concrete blueprint

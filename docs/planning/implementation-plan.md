@@ -59,11 +59,11 @@ This implementation plan outlines the technical roadmap for building the VC Port
 ┌─────────────────────────────────────────────────────────────┐
 │                   AI Layer                                  │
 ├─────────────────────────────────────────────────────────────┤
-│  Claude Agent SDK + BAML                                   │
-│  • Document Processing Agents                              │
-│  • Portfolio Intelligence Agents                           │
-│  • Network Analysis Agents                                 │
-│  • Quality Validation Agents                               │
+│  Google ADK Multi-Agent System                             │
+│  • Document Retriever Agents                               │
+│  • Data Formatter Agents                                   │
+│  • Sequential Workflow Orchestration                       │
+│  • Tier 1 Extraction Focus                                 │
 └─────────────────────────────────────────────────────────────┘
                                 │
                                 ▼
@@ -110,10 +110,12 @@ This implementation plan outlines the technical roadmap for building the VC Port
 #### AI & Machine Learning
 
 - **Document Processing**: Mistral OCR API for text extraction
-- **Natural Language Processing**: OpenAI GPT-4 for enhanced processing
-- **Agent Framework**: Claude Agent SDK for specialized agents
-- **Type Safety**: BAML for structured AI outputs
+- **Agent Framework**: Google Agent Development Kit (ADK) for multi-agent extraction
+- **AI Models**:
+  - Primary: Gemini 2.5 Flash for analysis and extraction
+  - Alternative: GPT-4o-mini (if OpenAI LLM is used)
 - **Vector Search**: Convex vector indexes for semantic search
+- **Architecture**: Multi-agent pattern with retriever + formatter agents
 
 ---
 
@@ -160,7 +162,7 @@ This implementation plan outlines the technical roadmap for building the VC Port
 
 **Key Deliverables**:
 
-- Integration with Claude Agent SDK for specialized agents
+- Integration with Google ADK for multi-agent extraction
 - Full Tier 1 extraction (80 fields) with 95% accuracy
 - Document quality validation and error detection
 - Enhanced portfolio analytics and benchmarking
@@ -170,8 +172,8 @@ This implementation plan outlines the technical roadmap for building the VC Port
 
 ```typescript
 // Enhanced Extraction Implementation
-1. Implement Claude Agent SDK integration
-2. Create specialized document processing agents
+1. Implement Google ADK multi-agent system
+2. Create retriever and formatter agent pipeline
 3. Build Tier 1 data extraction pipeline (80 fields)
 4. Implement document quality validation system
 5. Add error detection and confidence scoring
@@ -578,46 +580,59 @@ export class VCHybridChunker {
 }
 ```
 
-#### 4. Multi-Agent Extraction
+#### 4. Multi-Agent Extraction with Google ADK
 
 ```typescript
-// Multi-Agent Extraction System
-export class VCAgentOrchestrator {
-  private agents: Map<string, VCAgent>;
+// Multi-Agent Extraction System with Google ADK
+export class VCExtractionOrchestrator {
+  private agents: {
+    retriever: LlmAgent;
+    formatter: LlmAgent;
+    workflow: SequentialAgent;
+  };
 
   constructor() {
-    this.agents = new Map([
-      ["portfolio-extractor", new PortfolioExtractionAgent()],
-      ["metrics-analyzer", new FinancialMetricsAgent()],
-      ["risk-assessor", new RiskAnalysisAgent()],
-      ["performance-analyzer", new PerformanceAnalysisAgent()],
-      ["compliance-checker", new ComplianceAgent()],
-    ]);
+    // Retriever agent - fetches document data
+    this.agents.retriever = new LlmAgent({
+      model: "gemini-2.5-flash",
+      name: "document_retriever",
+      description: "Retrieves and preprocesses document data from OCR output",
+      instruction: "Extract raw financial data from OCR markdown...",
+      output_key: "raw_document_data",
+    });
+
+    // Formatter agent - structures the extracted data
+    this.agents.formatter = new LlmAgent({
+      model: "gemini-2.5-flash",
+      name: "data_formatter",
+      description: "Formats extracted data into structured schema",
+      instruction: "Structure financial metrics into Tier 1 schema...",
+      output_schema: Tier1FinancialMetrics,
+      output_key: "formatted_metrics",
+    });
+
+    // Sequential workflow
+    this.agents.workflow = new SequentialAgent({
+      name: "extraction_pipeline",
+      sub_agents: [this.agents.retriever, this.agents.formatter],
+    });
   }
 
   async processDocument(
     documentId: string,
     chunks: EmbeddedChunk[]
   ): Promise<ExtractionResults> {
-    const results: ExtractionResults = {};
-
-    // Parallel agent execution
-    const agentPromises = Array.from(this.agents.entries()).map(
-      async ([agentName, agent]) => {
-        const result = await agent.extract(chunks, documentId);
-        return [agentName, result];
-      }
-    );
-
-    const agentResults = await Promise.all(agentPromises);
+    // Execute sequential agent pipeline
+    const result = await this.agents.workflow.execute({
+      document_id: documentId,
+      chunks: chunks,
+      extraction_type: "tier1_financial_metrics",
+    });
 
     // Store results in Convex
-    for (const [agentName, result] of agentResults) {
-      results[agentName] = result;
-      await this.storeAgentResults(documentId, agentName, result);
-    }
+    await this.storeAgentResults(documentId, "GoogleADK-Pipeline", result);
 
-    return results;
+    return result;
   }
 }
 ```

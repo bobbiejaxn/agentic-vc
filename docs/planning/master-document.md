@@ -1,5 +1,12 @@
 ## Master Idea Document
 
+## Recent Architecture Updates (January 2025)
+
+- Migrated from Claude Agent SDK to Google ADK
+- Removed LlamaCloud dependency
+- Simplified to Mistral OCR + Google ADK agents
+- Focus on Tier 1 extraction (80 core fields)
+
 ### End Goal
 
 My app helps **venture capital investors (angels, LPs, and GPs)** achieve **automated portfolio management with 95%+ accurate fund data extraction and 20x faster investment decisions** using **Google's Agent Development Kit (ADK)** / **autonomous multi-agent AI systems with human-in-the-loop oversight**.
@@ -197,7 +204,7 @@ Venture capital investors (angels, LPs, and GPs) are stuck because **they must m
 
 3. **Real-Time Portfolio Synchronization** — When new data is extracted or validated, the system updates portfolio dashboards, recalculates performance metrics, triggers concentration alerts if thresholds are breached, and sends notifications to affected users within 2 seconds.
 
-4. **Intelligent Agent Learning** — When users provide feedback or corrections on extracted data, the system retrains specialized agents using BAML and Claude Agent SDK to improve accuracy for similar document types, achieving continuous improvement toward 99% accuracy targets.
+4. **Intelligent Agent Learning** — When users provide feedback or corrections on extracted data, the system retrains specialized agents using Google ADK to improve accuracy for similar document types, achieving continuous improvement toward 99% accuracy targets.
 
 ### Value-Adding Features (Advanced)
 

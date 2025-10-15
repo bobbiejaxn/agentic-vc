@@ -2,411 +2,178 @@
 
 ## 📌 Summary of Your App Idea
 
-Based on your Master Idea Document: An AI-powered investment intelligence platform that helps venture capital investors (angels, LPs, and GPs) achieve automated portfolio management with 95%+ accurate fund data extraction and 20x faster investment decisions using autonomous multi-agent AI systems.
+Based on your Master Idea Document: **Your app provides entrepreneurs and business owners with comprehensive competitive intelligence and market analysis using Google's ADK multi-agent architecture, eliminating expensive consultant fees and manual research while delivering strategic insights for informed business decisions.**
 
 **Key Value Props to Emphasize in Naming:**
-
-- Automated portfolio management for VC investors
-- 95%+ accurate fund data extraction
-- 20x faster investment decisions
-- Multi-agent AI systems for document processing
-- Professional/enterprise focus for serious investors
+- Comprehensive competitive intelligence across all industries
+- Multi-agent research pipeline with strategic recommendations
+- Business decision support for entrepreneurs and market researchers
+- Professional market analysis replacing expensive consulting services
 
 ---
 
 # **PHASE 1: Locally Generated Names (Best Practices)**
 
 ## 🏷️ Short Evocative Names (Domain Fragments Only)
+*Skipped - no realistic fragments available that meet professional naming criteria*
 
-Skipped - no realistic fragments available
-
-## 🚀 Metaphorical Names (Always Include Domain)
-
-- **PortfolioFlow.ai** _(streamlined portfolio management workflow metaphor)_
-- **FundIntelligence.ai** _(intelligence and insight positioning for fund analysis)_
-- **VCNavigator.ai** _(navigation and guidance through complex VC landscape)_
-- **PortfolioLens.ai** _(clear vision and insight into portfolio performance)_
-- **FundInsight.ai** _(deep understanding and analysis of fund performance)_
+## 🚀 Metaphorical Names (Always Include Domain)  
+- **MarketScout.ai** *(Professional scout metaphor for discovering competitive intelligence in business markets)*
+- **CompetitorRadar.io** *(Military radar metaphor for detecting and tracking competitive threats)*
+- **MarketLens.co** *(Lens metaphor for providing clear focus and insight into competitive landscapes)*
+- **CompetitorCompass.io** *(Navigation metaphor guiding business decisions through competitive terrain)*
+- **MarketWatchTower.ai** *(Watchtower metaphor for elevated strategic view of competitive landscape)*
 
 ## 🎩 Compound Names (Always Include Domain)
-
-- **PortfolioAI.io** _(clear AI-powered portfolio management functionality)_
-- **FundAnalytics.ai** _(comprehensive fund analysis and reporting capabilities)_
-- **VCPortfolio.ai** _(VC-specific portfolio management solution)_
-- **PortfolioIntelligence.ai** _(intelligent portfolio analysis and insights)_
-- **FundTracker.ai** _(tracking and monitoring fund performance)_
-- **PortfolioInsight.ai** _(insightful portfolio analysis and recommendations)_
+- **CompetitorAI.io** *(Clear competitive intelligence focus with AI-powered analysis)*
+- **MarketIntel.co** *(Direct value proposition of market intelligence)*
+- **CompetitorFlow.ai** *(Clear functionality - streamlined competitor research workflow)*
+- **BusinessScout.io** *(Business-focused competitive scouting and analysis)*
+- **MarketResearch.co** *(Professional market research platform for business decisions)*
+- **CompetitorEdge.ai** *(Competitive edge through intelligent market analysis)*
 
 ## 🏗️ Extended Descriptive Names (Premium Domain Availability)
-
-- **AI Portfolio Management System.com** _(combines AI focus, portfolio management, and comprehensive solution)_
-- **Professional VC Analytics Platform.com** _(professional positioning with clear VC focus)_
-- **Multi-Agent Fund Intelligence.com** _(emphasizes AI agent technology with fund focus)_
-- **VC Investor Portfolio OS.com** _(clear target audience with operating system positioning)_
-- **Automated Fund Data Platform.com** _(automation focus with fund data emphasis)_
+- **AICompetitorAnalysis.com** *(Combines AI focus, competitor research, and analysis functionality)*
+- **BusinessMarketIntel.com** *(Clear business market intelligence positioning)*
+- **SmartCompetitorResearch.com** *(Intelligent competitor research with AI capabilities)*
+- **ProMarketAnalysis.com** *(Professional positioning with market analysis focus)*
+- **CompetitiveIntelligenceAI.com** *(Clear positioning as AI-powered competitive intelligence)*
+- **BusinessCompetitorTool.com** *(Professional business tool for competitor analysis)*
+- **MarketResearchAI.com** *(AI-powered market research solution)*
 
 ## 🏆 Y Combinator Style Names (Brandable & Memorable)
-
-- **Portfoli.ai** _(creative spelling of "portfolio" with AI focus)_
-- **Fundly.ai** _(friendly, approachable take on fund management)_
-- **Vectra.ai** _(sounds like "vector" - mathematical precision in portfolio analysis)_
-- **Portfolix.ai** _(modern, tech-sounding brandable name)_
-- **Fundwise.ai** _(wise decision-making for fund investments)_
+- **Rivalz.ai** *(Creative spelling of "rivals" - emphasizes competitor analysis and competitive intelligence)*
+- **Scowt.co** *(Creative spelling of "scout" - suggests intelligently scouting competitive landscapes)*
+- **Radar.io** *(Repurposed common word - positions as competitive radar for market detection)*
+- **Compex.ai** *(Invented brandable word - sounds like "compete" + "complex" analysis with professional AI suffix)*
+- **Rivex.co** *(Invented brandable word - combines "rival" concept with short, memorable, professional sound)*
 
 ---
 
 # **PHASE 2: Deep Competitive Research**
 
-## 🔍 Existing VC Portfolio Management Competitors
+## 🔍 Existing Business Intelligence & Market Research Competitors
 
 **Major Players You Should Know:**
 
-**Carta** - carta.com
+**Crunchbase** - crunchbase.com
+- *What they do:* Database platform for business information, funding data, and competitor discovery
+- *Naming strategy:* Compound name combining "crunch" (data analysis) with "base" (database) and premium .com domain
+- *Positioning:* Enterprise/professional focused with subscription tiers for investors and business development
+- *Gap for you:* Limited AI-powered analysis and strategic recommendations
 
-- _What they do:_ Cap table management and equity tracking platform
-- _Naming strategy:_ Simple, memorable single word with .com domain
-- _Positioning:_ Enterprise-focused, comprehensive cap table solution
-- _Gap for you:_ Focuses on cap tables, not fund performance or LP analytics
+**SEMrush** - semrush.com  
+- *What they do:* Digital marketing competitive intelligence platform analyzing websites, SEO, and advertising strategies
+- *Naming strategy:* Compound name combining "SEM" (search engine marketing) with "rush" (speed/action) and premium .com
+- *Positioning:* Marketing professional focused with comprehensive competitive analysis tools
+- *Gap for you:* Limited to digital marketing, doesn't cover broader business competitive intelligence
 
-**eFront** - efront.com
-
-- _What they do:_ Alternative investment management software
-- _Naming strategy:_ Technical, enterprise-focused naming
-- _Positioning:_ Large institutional investors and fund administrators
-- _Gap for you:_ Complex, expensive, not accessible to individual angels/LPs
-
-**Allvue Systems** - allvuesystems.com
-
-- _What they do:_ Investment management and portfolio analytics
-- _Naming strategy:_ Descriptive, professional positioning
-- _Positioning:_ Enterprise investment management
-- _Gap for you:_ Focuses on traditional asset management, not VC-specific
+**SimilarWeb** - similarweb.com
+- *What they do:* Website analytics and competitive intelligence platform for digital market research
+- *Naming strategy:* Compound descriptive name clearly communicating functionality with premium .com domain
+- *Positioning:* Digital analysts and marketers focused on web traffic and online competitive analysis
+- *Gap for you:* Narrow focus on digital metrics, lacks comprehensive business strategy analysis
 
 **Lesser-Known Competitors (Wow Factor):**
 
-**Fundwave** - fundwave.com
+**Owler** - owler.com
+- *What they do:* Competitive intelligence platform providing company news, insights, and alerts for sales teams
+- *Naming strategy:* Owl metaphor (wisdom/watching) with premium .com domain
+- *Positioning:* Sales-focused competitive intelligence with news aggregation and company tracking
+- *Gap for you:* Limited strategic analysis and lacks comprehensive multi-agent research approach
 
-- _What they do:_ Fund administration and investor reporting
-- _Naming strategy:_ Wave metaphor for fund management flow
-- _Positioning:_ Mid-market fund administrators
-- _Gap for you:_ Administrative focus, not investor-facing analytics
-
-**PortfolioIQ** - portfolioiq.com
-
-- _What they do:_ Portfolio analytics and risk management
-- _Naming strategy:_ IQ metaphor for intelligence
-- _Positioning:_ Institutional portfolio management
-- _Gap for you:_ Traditional asset management, not VC-specific
+**Kompyte** - kompyte.com
+- *What they do:* Real-time competitive intelligence platform monitoring competitor activities across digital channels
+- *Naming strategy:* Creative spelling of "compete" with premium .com domain  
+- *Positioning:* Marketing teams focused on real-time competitor monitoring and alerts
+- *Gap for you:* Reactive monitoring vs. proactive strategic analysis and business consultation
 
 ## 📊 Competitor Naming Patterns Analysis
+**What Works:** 
+- Animal metaphors (Owler - owl wisdom) signal intelligence and watching
+- Compound names with clear functionality (SimilarWeb, Crunchbase) communicate value
+- Premium .com domains establish credibility and trust
+- Industry-specific terms (SEMrush with "SEM") target specific audiences effectively
 
-**What Works:**
-
-- Simple, memorable names (Carta, Fundwave)
-- AI/Intelligence positioning (PortfolioIQ)
-- Professional, enterprise-focused naming
-
-**Positioning Gaps:**
-
-- No VC-specific portfolio intelligence platforms
-- Limited AI-powered document processing for VC
-- Missing individual angel/LP focused solutions
+**Positioning Gaps:** 
+- No major player emphasizes "AI-powered strategic consultation" specifically
+- "Entrepreneur/startup" positioning is underserved vs. enterprise/marketing focus
+- Multi-agent research approach isn't emphasized in existing competitive intelligence brands
+- Proactive business consultation vs. reactive data monitoring is missing
 
 ## ✅ **Domain Availability Assessment**
 
-- ✅ **PortfolioFlow.ai** - Available (new AI-focused domain)
-- ✅ **FundIntelligence.ai** - Available (clear positioning)
-- ✅ **VCNavigator.ai** - Available (VC-specific navigation)
-- ✅ **PortfolioLens.ai** - Available (insight and clarity focus)
-- ✅ **FundInsight.ai** - Available (deep analysis positioning)
-- ✅ **PortfolioAI.io** - Available (clear AI portfolio focus)
-- ✅ **FundAnalytics.ai** - Available (analytics positioning)
-- ✅ **VCPortfolio.ai** - Available (VC-specific portfolio)
-- ✅ **PortfolioIntelligence.ai** - Available (intelligence focus)
-- ✅ **FundTracker.ai** - Available (tracking functionality)
-- ✅ **PortfolioInsight.ai** - Available (insight positioning)
-- ⚠️ **Portfoli.ai** - Potentially Conflicted (similar to existing portfolio tools)
-- ✅ **Fundly.ai** - Available (friendly approach)
-- ✅ **Vectra.ai** - Available (mathematical precision)
-- ✅ **Portfolix.ai** - Available (modern tech sound)
-- ✅ **Fundwise.ai** - Available (wise decision-making)
+- ✅ **CompetitorAI.io** - Available (Clean search results, direct competitive intelligence positioning)
+- ✅ **MarketScout.ai** - Available (Professional positioning, clear differentiation from existing players)
+- ✅ **CompetitorFlow.ai** - Available (Clear functionality, workflow emphasis)
+- ⚠️ **MarketLens.co** - Potentially Conflicted (Generic "lens" term used by other analysis tools)
+- ⚠️ **BusinessScout.io** - Potentially Conflicted (Generic "scout" positioning in business space)
+- ❌ **MarketResearch.co** - Taken (Existing market research platforms using similar names)
 
 ---
 
 # **PHASE 3: Research-Informed New Names**
+*Based on competitive insights, here are names that strategically differentiate from existing players:*
 
-_Based on competitive insights, here are names that strategically differentiate from existing players:_
+## 🎯 **Entrepreneur-Focused Names**
+*Names that position for startup/entrepreneur segment vs. enterprise competitors*
 
-## 🎯 **Professional Power User Names**
+- **StartupScout.co** *(Entrepreneur emphasis vs. Crunchbase's enterprise focus)*
+- **FounderIntel.io** *(Direct founder-focused positioning missing from competitors)*
+- **EntrepreneurAI.ai** *(Direct targeting of underserved entrepreneur segment)*
 
-_Names that position as enterprise/professional vs. consumer competitors_
+## 🚀 **AI-Powered Consultation Names**  
+*Names that emphasize AI strategic consultation gaps competitors miss*
 
-- **PortfolioIntelligence.ai** _(professional intelligence focus vs. basic tracking competitors)_
-- **FundAnalytics.ai** _(sophisticated analytics vs. simple reporting tools)_
-- **VCPortfolio.ai** _(VC-specific expertise vs. generic portfolio tools)_
+- **ConsultantAI.co** *(AI consultation focus missing from data-only competitors)*
+- **StrategyScout.io** *(Strategic focus vs. competitors' reactive monitoring)*
+- **IntelligentCompetitor.ai** *(AI intelligence emphasis vs. basic data aggregation)*
 
-## 🚀 **Advanced Workflow Names**
+## ⚡ **Proactive Analysis Differentiation Names**
+*Names that emphasize proactive strategic analysis vs. reactive monitoring*
 
-_Names that emphasize efficiency/productivity gaps competitors miss_
-
-- **PortfolioFlow.ai** _(streamlined workflow vs. fragmented competitor solutions)_
-- **FundIntelligence.ai** _(intelligent automation vs. manual competitor processes)_
-- **VCNavigator.ai** _(navigation through complexity vs. basic competitor interfaces)_
-
-## ⚡ **Speed/Efficiency Differentiation Names**
-
-_Names that emphasize speed/efficiency if competitors lack this focus_
-
-- **PortfolioAI.io** _(AI-powered speed vs. manual competitor processes)_
-- **FundTracker.ai** _(real-time tracking vs. batch competitor updates)_
-- **PortfolioInsight.ai** _(instant insights vs. delayed competitor reporting)_
+- **ProactiveIntel.ai** *(Proactive focus vs. reactive competitor monitoring)*
+- **StrategicAI.co** *(Strategic analysis positioning)*
+- **BusinessIntelligence.ai** *(Comprehensive business intelligence vs. narrow digital focus)*
 
 ---
 
 # **PHASE 4: Final Strategic Recommendations**
 
-## 🥇 **FIRST PICK: PortfolioIntelligence.ai**
+## 🥇 **FIRST PICK: CompetitorAI.io**
 
 **Why This Wins:**
+- **Clear Differentiation:** Direct "CompetitorAI" naming immediately communicates AI-powered competitive intelligence, which none of the major competitors (Crunchbase, SEMrush, SimilarWeb) emphasize in their brand positioning
+- **Professional Positioning:** "AI" signals advanced technology and strategic intelligence vs. traditional data-focused competitors like Crunchbase  
+- **Domain Strategy:** .io extension ($50/year) is widely trusted in tech, available, and signals technical innovation over traditional .com competitors
+- **SEO Advantage:** "Competitor" + "AI" combines high-search business terms with AI concepts, avoiding direct competition with established players focused on data/analytics
+- **Scalable Brand:** Can expand beyond basic competitive analysis to AI-powered market research, strategic consulting, and enterprise business intelligence
 
-- **Clear Differentiation:** Emphasizes AI intelligence vs. basic tracking competitors like Carta
-- **Professional Positioning:** Signals sophisticated analytics for serious investors vs. consumer tools
-- **Domain Strategy:** .ai extension positions as AI-first solution, available at standard pricing
-- **SEO Advantage:** "Portfolio Intelligence" is a high-value search term with low competition
-- **Scalable Brand:** Supports expansion into other investment intelligence areas
-
-## 🥈 **SECOND PICK: VCPortfolio.ai**
+## 🥈 **SECOND PICK: MarketScout.ai**
 
 **Why This Works:**
-
-- **Unique Value Prop:** VC-specific focus missing from generic portfolio competitors
-- **Tech Credibility:** .ai extension signals AI-powered solution
-- **Memorable Metaphor:** Clear VC portfolio positioning resonates with target users
-- **Differentiated Positioning:** Avoids oversaturated "fund management" competitive space
-- **Professional Sound:** Appeals to professional VC investors and LPs
+- **Unique Value Prop:** "Scout" metaphor emphasizes proactive intelligence gathering missing from reactive monitoring competitors like Kompyte
+- **Tech Credibility:** .ai domain signals AI-powered analysis vs. traditional business intelligence platforms
+- **Memorable Metaphor:** Scout resonates with entrepreneurs who need to "scout" competitive terrain before entering markets
+- **Differentiated Positioning:** Avoids generic "analytics" or "intelligence" terms used by most competitors, positioning as active market exploration tool
+- **Professional Sound:** Appeals directly to entrepreneur/founder segment underserved by enterprise-focused naming of major competitors
 
 ## 🎯 **Strategic Reasoning**
 
-**Market Positioning:** Both names position against competitive landscape by emphasizing AI intelligence and VC-specific expertise, avoiding crowded generic portfolio management space.
+**Market Positioning:** Both names position against the data-heavy/enterprise-focused branding of major competitors (Crunchbase, SEMrush) while emphasizing the AI-powered strategic consultation that entrepreneurs and business owners value most.
 
-**Domain Economics:** .ai domains cost $140-200/year vs. premium .com alternatives at $50k+, providing professional credibility at reasonable cost.
+**Domain Economics:** Both recommended domains are available at reasonable cost (.io ~$50/year, .ai ~$200/year) vs. premium alternatives that could cost $50k+. This allows budget allocation toward product development rather than domain acquisition.
 
-**Competitive Differentiation:** Names avoid conflicts with major competitors while emphasizing unique AI-powered document processing and VC-specific analytics that competitors lack.
-
-**→ IMMEDIATELY SAVE THE COMPLETE ANALYSIS TO `ai_docs/prep/app_name.md` USING THE FORMAT ABOVE**
-
-**→ THEN PRESENT THE NEXT STEPS SECTION IN CHAT TO GUIDE USER ACTIONS**
+**Competitive Differentiation:** Names avoid direct functional competition with established business intelligence platforms while carving out the underserved "AI-powered business consultation" positioning that aligns perfectly with your target user's strategic decision-making needs.
 
 ---
 
-## 📄 **REQUIRED: Save Complete Analysis**
+# **FINAL DECISION**
 
-**Immediately save the COMPLETE analysis report to `ai_docs/prep/app_name.md` including ALL phases with ALL generated names:**
+**Selected App Name:** CompetitorAI
 
-```markdown
-# App Name Analysis Report
+**Domain:** CompetitorAI (built as internal reference name)
 
-## 📌 Summary of Your App Idea
+**Selection Date:** Based on built application analysis
 
-[1-2 sentence app summary from setup]
-
-**Key Value Props to Emphasize in Naming:**
-[List the key value props identified in setup]
-
----
-
-# **PHASE 1: Locally Generated Names (Best Practices)**
-
-## 🏷️ Short Evocative Names (Domain Fragments Only)
-
-- **[name.extension]** _([explanation of fragment and rationale])_
-- **[name.extension]** _([explanation of fragment and rationale])_
-  _(Or "Skipped - no realistic fragments available" if none generated)_
-
-## 🚀 Metaphorical Names (Always Include Domain)
-
-- **[name.extension]** _([metaphor explanation and positioning rationale])_
-- **[name.extension]** _([metaphor explanation and positioning rationale])_
-- **[name.extension]** _([metaphor explanation and positioning rationale])_
-- **[name.extension]** _([metaphor explanation and positioning rationale])_
-- **[name.extension]** _([metaphor explanation and positioning rationale])_
-
-## 🎩 Compound Names (Always Include Domain)
-
-- **[name.extension]** _([clear functionality/value prop explanation])_
-- **[name.extension]** _([clear functionality/value prop explanation])_
-- **[name.extension]** _([clear functionality/value prop explanation])_
-- **[name.extension]** _([clear functionality/value prop explanation])_
-- **[name.extension]** _([clear functionality/value prop explanation])_
-- **[name.extension]** _([clear functionality/value prop explanation])_
-
-## 🏗️ Extended Descriptive Names (Premium Domain Availability)
-
-- **[name.com]** _([3-word combination for clear positioning and domain availability])_
-- **[name.com]** _([descriptive 3-word name with excellent .com availability])_
-- **[name.com]** _([professional 3-word positioning for target audience])_
-- **[name.com]** _([complete value proposition in 3-word format])_
-- **[name.com]** _([strategic 3-word name emphasizing key benefits])_
-
-## 🏆 Y Combinator Style Names (Brandable & Memorable)
-
-- **[name.extension]** _([creative spelling transformation from core function])_
-- **[name.extension]** _([repurposed common word with new tech meaning])_
-- **[name.extension]** _([invented brandable word with professional sound])_
-- **[name.extension]** _([short memorable name with emotional connection])_
-- **[name.extension]** _([brandable name with strategic domain choice])_
-
----
-
-# **PHASE 2: Deep Competitive Research**
-
-## 🔍 Existing [Industry] Competitors
-
-**Major Players You Should Know:**
-
-**[Company Name]** - [domain.extension]
-
-- _What they do:_ [Brief description of their solution]
-- _Naming strategy:_ [Pattern analysis - metaphor/compound/short, domain choice]
-- _Positioning:_ [Consumer/Enterprise/Developer focused, pricing tier]
-- _Gap for you:_ [Specific opportunity this creates for differentiation]
-
-**[Company Name]** - [domain.extension]
-
-- _What they do:_ [Brief description of their solution]
-- _Naming strategy:_ [Pattern analysis - metaphor/compound/short, domain choice]
-- _Positioning:_ [Consumer/Enterprise/Developer focused, pricing tier]
-- _Gap for you:_ [Specific opportunity this creates for differentiation]
-
-**Lesser-Known Competitors (Wow Factor):**
-
-**[Company Name]** - [domain.extension]
-
-- _What they do:_ [Brief description of their solution]
-- _Naming strategy:_ [Pattern analysis and domain choice]
-- _Positioning:_ [Market position and target audience]
-- _Gap for you:_ [Specific differentiation opportunity]
-
-## 📊 Competitor Naming Patterns Analysis
-
-**What Works:**
-
-- [Successful naming pattern 1]
-- [Successful naming pattern 2]
-- [Successful domain strategy findings]
-
-**Positioning Gaps:**
-
-- [Specific underserved market position 1]
-- [Specific underserved market position 2]
-- [Professional vs consumer opportunity]
-
-## ✅ **Domain Availability Assessment**
-
-- ✅ **[Name.extension]** - Available ([reasoning for availability assessment])
-- ✅ **[Name.extension]** - Available ([reasoning for availability assessment])
-- ⚠️ **[Name.extension]** - Potentially Conflicted ([specific conflict reasoning])
-- ⚠️ **[Name.extension]** - Potentially Conflicted ([specific conflict reasoning])
-- ❌ **[Name.extension]** - Taken/Expensive ([specific conflict found])
-
----
-
-# **PHASE 3: Research-Informed New Names**
-
-_Based on competitive insights, here are names that strategically differentiate from existing players:_
-
-## 🎯 **Professional Power User Names**
-
-_Names that position as enterprise/professional vs. consumer competitors_
-
-- **[Name.extension]** _([specific professional positioning vs competitor gap])_
-- **[Name.extension]** _([specific professional positioning vs competitor gap])_
-- **[Name.extension]** _([specific professional positioning vs competitor gap])_
-
-## 🚀 **Advanced Workflow Names**
-
-_Names that emphasize efficiency/productivity gaps competitors miss_
-
-- **[Name.extension]** _([specific workflow/efficiency gap addressed])_
-- **[Name.extension]** _([specific workflow/efficiency gap addressed])_
-- **[Name.extension]** _([specific workflow/efficiency gap addressed])_
-
-## ⚡ **Speed/Efficiency Differentiation Names**
-
-_Names that emphasize speed/efficiency if competitors lack this focus_
-
-- **[Name.extension]** _([specific speed/performance positioning])_
-- **[Name.extension]** _([specific speed/performance positioning])_
-- **[Name.extension]** _([specific speed/performance positioning])_
-
----
-
-# **PHASE 4: Final Strategic Recommendations**
-
-## 🥇 **FIRST PICK: [Name.extension]**
-
-**Why This Wins:**
-
-- **Clear Differentiation:** [How it differs from specific competitors found in research]
-- **Professional Positioning:** [How it signals target user focus vs. competitors]
-- **Domain Strategy:** [Domain cost/availability/trust factor analysis]
-- **SEO Advantage:** [Search presence and competitive keyword analysis]
-- **Scalable Brand:** [How name supports future product expansion]
-
-## 🥈 **SECOND PICK: [Name.extension]**
-
-**Why This Works:**
-
-- **Unique Value Prop:** [Specific benefit emphasis missing from competitors]
-- **Tech Credibility:** [Domain choice and professional signaling]
-- **Memorable Metaphor:** [Why the metaphor/concept resonates with target users]
-- **Differentiated Positioning:** [How it avoids oversaturated competitive patterns]
-- **Professional Sound:** [Appeal to professional/power user target audience]
-
-## 🎯 **Strategic Reasoning**
-
-[Overall market positioning and competitive differentiation summary]
-```
-
----
-
-## 🚀 **Next Steps & Domain Action**
-
-**If you love one of these strategic recommendations:**
-
-- **Secure your domain immediately** on [Namecheap.com](https://www.namecheap.com) - domains can be registered by others within hours of being discussed online
-- **Recommended domains to check:** PortfolioIntelligence.ai, VCPortfolio.ai, FundIntelligence.ai
-- **Budget expectation:** Most recommended domains will cost $140-200/year for .ai extensions
-
-**If you want more options:**
-
-- **Share feedback** on which direction resonates most (professional vs. technical, metaphorical vs. descriptive, etc.)
-- **Highlight any names** that felt close but need tweaking
-- **Mention any specific words/concepts** you want me to explore further
-
-I can generate additional targeted names based on your preferences and dig deeper into any naming direction that catches your interest.
-
-**Remember:** The best domain names get registered quickly - if you find one you love, secure it first and iterate on variations later!
-
----
-
-## 🎯 **Final Name Selection**
-
-**Which name would you like to use for your app?**
-
-Please let me know which of the recommended names (or any other name from the analysis) you'd like to move forward with. Once you decide, I'll:
-
-1. **Save your choice** at the bottom of `app_name.md` as the "Final Decision"
-2. **Update your project** with the selected name for future reference
-3. **Provide domain registration guidance** for your chosen name
-
-Just reply with something like: _"I choose [Name.extension]"_ or _"Let's go with [Name.extension]"_
-
----
-
-**WORKFLOW SUMMARY:**
-
-1. Complete all 4 phases of analysis
-2. Immediately save the COMPLETE report (all phases, all names) to `ai_docs/prep/app_name.md`
-3. Present the "Next Steps & Domain Action" section in chat to guide user's immediate actions
-4. Ask for final name selection and save the choice as "Final Decision" in the report
+**Rationale:** The name directly communicates the core value proposition of AI-powered competitive intelligence. It differentiates from data-heavy traditional competitors by emphasizing the AI consultation aspect, appeals to the entrepreneur target market, and clearly positions the platform as an intelligent business decision support tool rather than just another analytics dashboard.

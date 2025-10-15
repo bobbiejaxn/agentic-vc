@@ -500,13 +500,11 @@ echo "To rollback: git branch -D template-update-[timestamp]"
 ### Common Conflict Scenarios
 
 1. **User customized same files as upstream changes**
-
    - Explain what each side changed
    - Offer merge strategies (keep user's, accept upstream, manual merge)
    - Guide through manual resolution if chosen
 
 2. **Environment variable changes**
-
    - Show new variables needed
    - Guide updating `.env.example` and user's actual `.env`
    - Explain what each variable does

@@ -88,9 +88,7 @@ const isApplied =
 console.log(`📊 Migration Status:`);
 console.log(`   Applied to Database: ${isApplied ? "YES" : "NO"}`);
 console.log(
-  `   Action Required: ${
-    isApplied ? "Database rollback + cleanup" : "Local cleanup only"
-  }`
+  `   Action Required: ${isApplied ? "Database rollback + cleanup" : "Local cleanup only"}`
 );
 ```
 
@@ -123,9 +121,7 @@ if (isApplied) {
 const filesToDelete = [
   `drizzle/migrations/${latestMigration.tag}.sql`, // Up migration file
   `drizzle/migrations/${latestMigration.tag}/`, // Migration folder (with down.sql)
-  `drizzle/migrations/meta/${latestMigration.idx
-    .toString()
-    .padStart(4, "0")}_snapshot.json`, // Snapshot file
+  `drizzle/migrations/meta/${latestMigration.idx.toString().padStart(4, "0")}_snapshot.json`, // Snapshot file
 ];
 
 console.log(`🗑️ Files to be deleted:`);
@@ -194,9 +190,7 @@ const verificationChecks = [
   { file: `drizzle/migrations/${latestMigration.tag}.sql`, shouldExist: false },
   { file: `drizzle/migrations/${latestMigration.tag}/`, shouldExist: false },
   {
-    file: `drizzle/migrations/meta/${latestMigration.idx
-      .toString()
-      .padStart(4, "0")}_snapshot.json`,
+    file: `drizzle/migrations/meta/${latestMigration.idx.toString().padStart(4, "0")}_snapshot.json`,
     shouldExist: false,
   },
 ];
