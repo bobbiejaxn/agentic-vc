@@ -1,0 +1,1856 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LP Insights</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer=""
+      src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    <style id="aura-editor-visibility-style">
+      .invisible {
+        visibility: hidden !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-manrope"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-manrope">
+      .font-manrope {
+        font-family: "Manrope", sans-serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-geist"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-geist">
+      .font-geist {
+        font-family: "Geist", sans-serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-roboto"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-roboto">
+      .font-roboto {
+        font-family: "Roboto", sans-serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-montserrat"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-montserrat">
+      .font-montserrat {
+        font-family: "Montserrat", sans-serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-poppins"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-poppins">
+      .font-poppins {
+        font-family: "Poppins", sans-serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-playfair"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-playfair">
+      .font-playfair {
+        font-family: "Playfair Display", serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-instrument-serif"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-instrument-serif">
+      .font-instrument-serif {
+        font-family: "Instrument Serif", serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-merriweather"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-merriweather">
+      .font-merriweather {
+        font-family: "Merriweather", serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-bricolage"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-bricolage">
+      .font-bricolage {
+        font-family: "Bricolage Grotesque", sans-serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-jakarta"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-jakarta">
+      .font-jakarta {
+        font-family: "Plus Jakarta Sans", sans-serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-space-grotesk"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-space-grotesk">
+      .font-space-grotesk {
+        font-family: "Space Grotesk", sans-serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-work-sans"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-work-sans">
+      .font-work-sans {
+        font-family: "Work Sans", sans-serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-pt-serif"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-pt-serif">
+      .font-pt-serif {
+        font-family: "PT Serif", serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-geist-mono"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-geist-mono">
+      .font-geist-mono {
+        font-family: "Geist Mono", monospace !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-space-mono"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-space-mono">
+      .font-space-mono {
+        font-family: "Space Mono", monospace !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-quicksand"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-quicksand">
+      .font-quicksand {
+        font-family: "Quicksand", sans-serif !important;
+      }
+    </style>
+    <link
+      id="all-fonts-link-font-nunito"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"
+    />
+    <style id="all-fonts-style-font-nunito">
+      .font-nunito {
+        font-family: "Nunito", sans-serif !important;
+      }
+    </style>
+  </head>
+  <body
+    class="font-normal bg-neutral-900 text-neutral-100"
+    style="font-family: &quot;Inter&quot;, sans-serif"
+  >
+    <div class="flex h-screen">
+      <!-- Sidebar -->
+      <aside
+        class="w-64 border-r flex flex-col bg-neutral-900 border-neutral-800"
+      >
+        <div class="p-6 border-b border-neutral-800">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 flex items-center justify-center bg-white">
+              <span class="text-sm font-medium text-neutral-900 font-sans"
+                >A</span
+              >
+            </div>
+            <div>
+              <h1
+                class="text-base font-medium tracking-tight text-white font-sans"
+              >
+                Aure
+              </h1>
+              <p class="text-sm text-neutral-400 font-sans">Investor Suite</p>
+            </div>
+          </div>
+        </div>
+
+        <nav class="flex-1 p-4 space-y-6">
+          <div>
+            <p
+              class="text-xs font-medium text-neutral-500 uppercase tracking-wide mb-3 font-sans"
+            >
+              Navigation
+            </p>
+            <div class="space-y-1">
+              <a
+                href="#"
+                class="flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors text-neutral-300 hover:bg-neutral-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 stroke-[1.5]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                  <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                  <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                  <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                </svg>
+                <span class="font-sans">Overview</span>
+              </a>
+              <a
+                href="#"
+                class="flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium bg-neutral-800 text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 stroke-[1.5]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path d="M3 3v16a2 2 0 0 0 2 2h16"></path>
+                  <path d="M18 17V9"></path>
+                  <path d="M13 17V5"></path>
+                  <path d="M8 17v-3"></path>
+                </svg>
+                <span class="font-sans">Insights</span>
+              </a>
+              <a
+                href="#"
+                class="flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors text-neutral-300 hover:bg-neutral-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 stroke-[1.5]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path d="m3 7 9-4 9 4-9 4-9-4Z"></path>
+                  <path d="M21 7v10l-9 4-9-4V7"></path>
+                  <path d="M3 17l9 4 9-4"></path>
+                </svg>
+                <span class="font-sans">Funds</span>
+              </a>
+              <a
+                href="#"
+                class="flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors text-neutral-300 hover:bg-neutral-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 stroke-[1.5]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                  <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                  <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                  <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                </svg>
+                <span class="font-sans">Portfolio</span>
+              </a>
+              <a
+                href="#"
+                class="flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors text-neutral-300 hover:bg-neutral-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 stroke-[1.5]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M4 19.5V4a2 2 0 0 1 2-2h9.5L20 6.5V20a2 2 0 0 1-2 2H6.5a2.5 2.5 0 0 1-2.5-2.5Z"
+                  ></path>
+                  <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                </svg>
+                <span class="font-sans">Reports</span>
+              </a>
+              <a
+                href="#"
+                class="flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors text-neutral-300 hover:bg-neutral-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 stroke-[1.5]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path d="M3 5h18"></path>
+                  <path d="M7 15h10"></path>
+                  <path d="M10 9h7"></path>
+                  <path d="M5 19h14"></path>
+                </svg>
+                <span class="font-sans">Documents</span>
+              </a>
+              <a
+                href="#"
+                class="flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors text-neutral-300 hover:bg-neutral-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4 stroke-[1.5]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path d="M3 7h18"></path>
+                  <path d="M3 12h18"></path>
+                  <path d="M3 17h18"></path>
+                </svg>
+                <span class="font-sans">Pipeline</span>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <p
+              class="text-xs font-medium text-neutral-500 uppercase tracking-wide mb-3 font-sans"
+            >
+              Funds
+            </p>
+            <div class="space-y-1">
+              <a
+                href="#"
+                class="flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors text-neutral-300 hover:bg-neutral-800"
+              >
+                <div class="w-4 h-4 bg-blue-500 rounded-sm"></div>
+                <span class="font-sans">Fund I (2018)</span>
+              </a>
+              <a
+                href="#"
+                class="flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors text-neutral-300 hover:bg-neutral-800"
+              >
+                <div class="w-4 h-4 bg-green-500 rounded-sm"></div>
+                <span class="font-sans">Fund II (2021)</span>
+              </a>
+              <a
+                href="#"
+                class="flex items-center space-x-3 px-3 py-2 rounded-md text-sm transition-colors text-neutral-300 hover:bg-neutral-800"
+              >
+                <div class="w-4 h-4 bg-purple-500 rounded-sm"></div>
+                <span class="font-sans">SPV A (Co-Invest)</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="p-4 border-t border-neutral-800">
+          <div class="flex items-center space-x-3">
+            <img
+              src="https://images.unsplash.com/photo-1621619856624-42fd193a0661?w=1080&amp;q=80"
+              alt="Profile"
+              class="w-8 h-8 rounded-full object-cover"
+            />
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium truncate text-white font-sans">
+                Jordan Lee
+              </p>
+              <p class="text-xs truncate text-neutral-400 font-sans">
+                jordan@limitedpartners.io
+              </p>
+            </div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4 stroke-[1.5] text-neutral-500"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header -->
+        <header
+          class="h-16 px-6 border-b flex items-center justify-between bg-neutral-900 border-neutral-800"
+        >
+          <div>
+            <h1
+              class="text-2xl tracking-tight text-white font-manrope font-medium"
+            >
+              LP Insights
+            </h1>
+            <p class="text-sm mt-0.5 text-neutral-400 font-sans">
+              Aggregate GP reports and surface cross-fund signals
+            </p>
+          </div>
+          <div class="flex items-center space-x-3">
+            <div class="relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 stroke-[1.5] text-neutral-500"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="m21 21-4.34-4.34"></path>
+                <circle cx="11" cy="11" r="8"></circle>
+              </svg>
+              <input
+                type="text"
+                placeholder="Search funds, companies, reports..."
+                class="w-72 pl-10 pr-4 py-2 border text-sm placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-neutral-800 border-neutral-700 text-white"
+              />
+            </div>
+            <button
+              class="px-3 py-2 border transition-colors flex items-center space-x-2 border-neutral-700 hover:bg-neutral-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4 stroke-[1.5] text-neutral-300"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M12 12v8"></path>
+                <path d="M8 16h8"></path>
+                <path d="M20 12V7a2 2 0 0 0-2-2h-4"></path>
+                <path d="M4 14V7a2 2 0 0 1 2-2h4"></path>
+                <path d="M16 5v4h4"></path>
+                <path d="M8 5v4H4"></path>
+              </svg>
+              <span class="text-sm text-neutral-300 font-sans">New Digest</span>
+            </button>
+            <button
+              class="px-3 py-2 transition-colors flex items-center space-x-2 bg-white text-neutral-900 hover:bg-neutral-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4 stroke-[1.5]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" x2="12" y1="15" y2="3"></line>
+              </svg>
+              <span class="text-sm font-medium font-sans">Upload Report</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Content -->
+        <div class="flex-1 overflow-auto p-6">
+          <!-- Minimal filter chips for fast drill-down -->
+          <div class="max-w-7xl mb-4 flex items-center gap-2">
+            <div class="flex items-center gap-2">
+              <button
+                class="px-3 py-1.5 rounded-full text-xs border bg-neutral-800 border-neutral-700 text-white font-sans"
+              >
+                All Funds
+              </button>
+              <button
+                class="px-3 py-1.5 rounded-full text-xs border border-neutral-700 text-neutral-300 hover:bg-neutral-800 font-sans"
+              >
+                Q2’25
+              </button>
+            </div>
+            <a
+              href="/filters"
+              class="ml-auto text-xs text-neutral-400 hover:text-white font-sans"
+              >Adjust filters</a
+            >
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl"
+          >
+            <!-- Performance Overview (prioritized, wider) -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800 md:col-span-2"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-medium text-white font-sans">
+                  Performance Overview
+                </h3>
+                <span class="text-xs text-neutral-400 font-sans"
+                  >As of Q2 ‘25</span
+                >
+              </div>
+              <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-3 border border-neutral-800">
+                  <p class="text-xs mb-1 text-neutral-400 font-sans">Net IRR</p>
+                  <div class="flex items-baseline space-x-2">
+                    <span
+                      class="text-3xl tracking-tight text-white font-manrope font-medium"
+                      >18.4%</span
+                    >
+                    <span class="text-xs text-emerald-400 font-sans"
+                      >+0.6%</span
+                    >
+                  </div>
+                  <p class="text-[11px] mt-1 text-neutral-500 font-sans">
+                    Target 20%
+                  </p>
+                </div>
+                <div class="p-3 border border-neutral-800">
+                  <p class="text-xs mb-1 text-neutral-400 font-sans">TVPI</p>
+                  <div class="flex items-baseline space-x-2">
+                    <span
+                      class="text-3xl tracking-tight text-white font-manrope font-medium"
+                      >1.72x</span
+                    >
+                    <span class="text-xs text-emerald-400 font-sans"
+                      >+0.04x</span
+                    >
+                  </div>
+                  <p class="text-[11px] mt-1 text-neutral-500 font-sans">
+                    Target 1.80x
+                  </p>
+                </div>
+                <div class="p-3 border border-neutral-800">
+                  <p class="text-xs mb-1 text-neutral-400 font-sans">DPI</p>
+                  <div class="flex items-baseline space-x-2">
+                    <span
+                      class="text-3xl tracking-tight text-white font-manrope font-medium"
+                      >0.41x</span
+                    >
+                    <span class="text-xs text-blue-400 font-sans"
+                      >Unrealized ↑</span
+                    >
+                  </div>
+                  <p class="text-[11px] mt-1 text-neutral-500 font-sans">
+                    Target 0.50x
+                  </p>
+                </div>
+                <div class="p-3 border border-neutral-800">
+                  <p class="text-xs mb-1 text-neutral-400 font-sans">RVPI</p>
+                  <div class="flex items-baseline space-x-2">
+                    <span
+                      class="text-3xl tracking-tight text-white font-manrope font-medium"
+                      >1.31x</span
+                    >
+                    <span class="text-xs text-neutral-400 font-sans"
+                      >Stable</span
+                    >
+                  </div>
+                  <p class="text-[11px] mt-1 text-neutral-500 font-sans">
+                    Target ≥1.20x
+                  </p>
+                </div>
+              </div>
+              <div class="mt-4">
+                <div class="w-full rounded-full h-2 bg-neutral-800">
+                  <div
+                    class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full"
+                    style="width: 68%"
+                  ></div>
+                </div>
+                <div class="flex justify-between text-xs mt-2">
+                  <span class="text-neutral-400 font-sans"
+                    >Distribution progress</span
+                  >
+                  <div class="flex items-center gap-3">
+                    <span class="text-neutral-500 font-sans">Target 75%</span>
+                    <span class="font-medium text-white font-sans">68%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center justify-between">
+                <p class="text-[11px] text-neutral-500 font-sans">
+                  Benchmark (top quartile IRR): 19–22%
+                </p>
+                <a
+                  href="/performance"
+                  class="text-xs text-neutral-400 hover:text-white font-sans"
+                  >View performance</a
+                >
+              </div>
+            </div>
+
+            <!-- Cash Flows (moved up as key KPI) -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-medium text-white font-sans">
+                  Cash Flows
+                </h3>
+                <span class="text-xs text-neutral-400 font-sans">YTD</span>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="p-3 border border-neutral-800">
+                  <p class="text-xs mb-1 text-neutral-400 font-sans">
+                    Contributions
+                  </p>
+                  <div
+                    class="text-2xl tracking-tight text-white font-manrope font-medium"
+                  >
+                    $6.8M
+                  </div>
+                </div>
+                <div class="p-3 border border-neutral-800">
+                  <p class="text-xs mb-1 text-neutral-400 font-sans">
+                    Distributions
+                  </p>
+                  <div
+                    class="text-2xl tracking-tight text-white font-manrope font-medium"
+                  >
+                    $2.8M
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4">
+                <div class="w-full rounded-full h-2 bg-neutral-800">
+                  <div
+                    class="bg-emerald-500 h-2 rounded-full"
+                    style="width: 41%"
+                  ></div>
+                </div>
+                <div class="flex justify-between text-xs mt-2">
+                  <span class="text-neutral-400 font-sans"
+                    >Paid-in vs Returned</span
+                  >
+                  <div class="flex items-center gap-3">
+                    <span class="text-neutral-500 font-sans">Target 50%</span>
+                    <span class="font-medium text-white font-sans"
+                      >41% returned</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Risk Flags (moved up for decision-centric visibility) -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-medium text-white font-sans">
+                  Risk Flags
+                </h3>
+                <div class="w-2 h-2 bg-red-500 rounded-full"></div>
+              </div>
+              <div class="space-y-3">
+                <div class="p-3 bg-neutral-800">
+                  <p class="text-sm text-white font-sans">
+                    Two holdings with
+                    <span class="text-red-300 font-sans"
+                      >runway &lt; 6 months</span
+                    >; follow-up requested.
+                  </p>
+                  <p class="text-xs mt-1 text-neutral-400 font-sans">
+                    Portfolio Ops • Today
+                  </p>
+                </div>
+                <div class="p-3 border border-neutral-800">
+                  <p class="text-sm text-white font-sans">
+                    Fair value adjustments pending for 3 companies in Fintech.
+                  </p>
+                  <p class="text-xs mt-1 text-neutral-400 font-sans">
+                    Valuation • Due EOW
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vintage Performance (Chart.js) -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800"
+            >
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-base font-medium text-white font-sans">
+                  Vintage Performance
+                </h3>
+                <span class="text-xs text-neutral-400 font-sans"
+                  >Quarterly</span
+                >
+              </div>
+              <p class="text-xs mb-3 text-neutral-400 font-sans">
+                IRR trend by vintage cohort
+              </p>
+              <div>
+                <div class="h-44">
+                  <canvas id="vintageChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sector Exposure (Doughnut) -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800"
+            >
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-base font-medium text-white font-sans">
+                  Sector Exposure
+                </h3>
+                <span class="text-xs text-neutral-400 font-sans"
+                  >Weighted by NAV</span
+                >
+              </div>
+              <p class="text-xs mb-3 text-neutral-400 font-sans">
+                Allocation across portfolio
+              </p>
+              <div class="flex justify-center mb-4">
+                <div class="w-36">
+                  <div>
+                    <div class="h-36">
+                      <canvas id="exposureChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3 h-3 rounded-full"
+                      style="background-color: #60a5fa"
+                    ></span>
+                    <span class="text-sm text-neutral-300 font-sans">SaaS</span>
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >34%</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3 h-3 rounded-full"
+                      style="background-color: #34d399"
+                    ></span>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >Fintech</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >26%</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3 h-3 rounded-full"
+                      style="background-color: #a78bfa"
+                    ></span>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >AI/ML</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >18%</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3 h-3 rounded-full"
+                      style="background-color: #f59e0b"
+                    ></span>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >Healthcare</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >12%</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3 h-3 rounded-full"
+                      style="background-color: #ef4444"
+                    ></span>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >Other</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >10%</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Report Ingestion -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-medium text-white font-sans">
+                  Report Ingestion
+                </h3>
+                <div class="flex items-center space-x-2">
+                  <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                  <span class="text-xs text-neutral-400 font-sans">Live</span>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div
+                  class="flex items-start space-x-3 p-3 border border-neutral-800"
+                >
+                  <div
+                    class="w-8 h-8 bg-blue-500/10 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 stroke-[1.5] text-blue-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"
+                      ></path>
+                      <polyline points="14,2 14,8 20,8"></polyline>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm text-white font-sans">
+                      Fund II Q2’25 Quarterly Report
+                    </p>
+                    <p class="text-xs mt-1 text-neutral-400 font-sans">
+                      Extracting KPIs • 2m ago
+                    </p>
+                    <div class="w-full rounded-full h-2 mt-3 bg-neutral-800">
+                      <div
+                        class="bg-blue-500 h-2 rounded-full"
+                        style="width: 62%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex items-start space-x-3 p-3 border border-neutral-800"
+                >
+                  <div
+                    class="w-8 h-8 bg-green-500/10 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 stroke-[1.5] text-green-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path d="M20 6 9 17l-5-5"></path>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm text-white font-sans">
+                      Fund I Annual Letter 2024
+                    </p>
+                    <p class="text-xs mt-1 text-neutral-400 font-sans">
+                      Completed • 1h ago
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-start space-x-3 p-3 border border-neutral-800"
+                >
+                  <div
+                    class="w-8 h-8 bg-yellow-500/10 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 stroke-[1.5] text-yellow-400"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path d="M12 9v4"></path>
+                      <path d="M10 21h4"></path>
+                      <path d="M12 17v4"></path>
+                      <path d="M3 4h18"></path>
+                      <path d="M8 4v7a4 4 0 0 0 8 0V4"></path>
+                    </svg>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm text-white font-sans">
+                      SPV A Capital Account Statements
+                    </p>
+                    <p class="text-xs mt-1 text-neutral-400 font-sans">
+                      Queued • ETA 10m
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Insights (trimmed decoration for faster scan) -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800"
+            >
+              <h3 class="text-base font-medium mb-4 text-white font-sans">
+                Recent Insights
+              </h3>
+              <div class="space-y-4">
+                <div>
+                  <p class="text-sm text-white font-sans">
+                    Fund II pacing 15% behind target; deploy rate expected to
+                    normalize in 2 quarters.
+                  </p>
+                  <p class="text-xs mt-1 text-neutral-400 font-sans">
+                    Generated 30m ago
+                  </p>
+                </div>
+                <div>
+                  <p class="text-sm text-white font-sans">
+                    Top 10 positions contribute 61% of NAV; concentration risk
+                    trending upward.
+                  </p>
+                  <p class="text-xs mt-1 text-neutral-400 font-sans">
+                    Fund-wide • 2h ago
+                  </p>
+                </div>
+                <div>
+                  <p class="text-sm text-white font-sans">
+                    SaaS cohort median ARR growth slowed from 45% to 38% QoQ.
+                  </p>
+                  <p class="text-xs mt-1 text-neutral-400 font-sans">
+                    SaaS • 4h ago
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Top Holdings -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-medium text-white font-sans">
+                  Top Holdings
+                </h3>
+                <span class="text-xs text-neutral-400 font-sans">By NAV</span>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >Nimbus AI</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >12.2%</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >ArcPay</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >9.7%</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-purple-500 rounded-full"></div>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >Helio Health</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >8.4%</span
+                  >
+                </div>
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >Talon Cloud</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >6.6%</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Communication & Updates (trimmed decoration) -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800"
+            >
+              <h3 class="text-base font-medium mb-4 text-white font-sans">
+                Updates
+              </h3>
+              <div class="space-y-4">
+                <div>
+                  <p class="text-sm text-white font-sans">
+                    GP office hours scheduled for Fund II fee review.
+                  </p>
+                  <p class="text-xs mt-1 text-neutral-400 font-sans">
+                    Tomorrow • 10:00 AM
+                  </p>
+                </div>
+                <div>
+                  <p class="text-sm text-white font-sans">
+                    Capital call notice reconciled and archived.
+                  </p>
+                  <p class="text-xs mt-1 text-neutral-400 font-sans">1d ago</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Compliance Checklist -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-medium text-white font-sans">
+                  Compliance
+                </h3>
+                <span class="text-xs text-neutral-400 font-sans"
+                  >Quarterly</span
+                >
+              </div>
+              <div class="space-y-3">
+                <div
+                  class="flex items-center justify-between p-3 border border-neutral-800"
+                >
+                  <div class="flex items-center space-x-3">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >K-1 Archive</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >Done</span
+                  >
+                </div>
+                <div
+                  class="flex items-center justify-between p-3 border border-neutral-800"
+                >
+                  <div class="flex items-center space-x-3">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >Valuation Memo Sign-off</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >Pending</span
+                  >
+                </div>
+                <div
+                  class="flex items-center justify-between p-3 border border-neutral-800"
+                >
+                  <div class="flex items-center space-x-3">
+                    <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                    <span class="text-sm text-neutral-300 font-sans"
+                      >Audit Portal Upload</span
+                    >
+                  </div>
+                  <span class="text-sm font-medium text-white font-sans"
+                    >In Progress</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow bg-neutral-900 border-neutral-800"
+            >
+              <h3 class="text-base font-medium mb-6 text-white font-sans">
+                Quick Actions
+              </h3>
+              <div class="grid grid-cols-2 gap-3">
+                <button
+                  class="p-4 border transition-colors group border-neutral-700 hover:bg-neutral-800"
+                >
+                  <div
+                    class="w-8 h-8 flex items-center justify-center mx-auto mb-3 group-hover:bg-white/10 bg-white/5"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 stroke-[1.5] text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                      ></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" x2="12" y1="15" y2="3"></line>
+                    </svg>
+                  </div>
+                  <span class="text-xs text-neutral-300 font-sans"
+                    >Upload Report</span
+                  >
+                </button>
+                <button
+                  class="p-4 border transition-colors group border-neutral-700 hover:bg-neutral-800"
+                >
+                  <div
+                    class="w-8 h-8 flex items-center justify-center mx-auto mb-3 group-hover:bg-white/10 bg-white/5"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 stroke-[1.5] text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path d="m22 2-7 20-4-9-9-4Z"></path>
+                      <path d="M22 2 11 13"></path>
+                    </svg>
+                  </div>
+                  <span class="text-xs text-neutral-300 font-sans"
+                    >Create Note</span
+                  >
+                </button>
+                <button
+                  class="p-4 border transition-colors group border-neutral-700 hover:bg-neutral-800"
+                >
+                  <div
+                    class="w-8 h-8 flex items-center justify-center mx-auto mb-3 group-hover:bg-white/10 bg-white/5"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 stroke-[1.5] text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path d="m17 8 5 5-5 5"></path>
+                      <path d="M12 19v-3a4 4 0 0 1 4-4h6"></path>
+                      <path d="m7 16-5-5 5-5"></path>
+                      <path d="M12 5v3a4 4 0 0 1-4 4H2"></path>
+                    </svg>
+                  </div>
+                  <span class="text-xs text-neutral-300 font-sans"
+                    >Share Digest</span
+                  >
+                </button>
+                <button
+                  class="p-4 border transition-colors group border-neutral-700 hover:bg-neutral-800"
+                >
+                  <div
+                    class="w-8 h-8 flex items-center justify-center mx-auto mb-3 group-hover:bg-white/10 bg-white/5"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 stroke-[1.5] text-white"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8"></path>
+                      <path d="M14 2v6a2 2 0 0 0 2 2h6"></path>
+                      <path d="M16 13H8"></path>
+                      <path d="M16 17H8"></path>
+                      <path d="M10 9H8"></path>
+                    </svg>
+                  </div>
+                  <span class="text-xs text-neutral-300 font-sans"
+                    >Export CSV/XLSX</span
+                  >
+                </button>
+              </div>
+            </div>
+
+            <!-- GP Reports Table -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow md:col-span-2 lg:col-span-3 xl:col-span-4 bg-neutral-900 border-neutral-800"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-medium text-white font-sans">
+                  GP Reports
+                </h3>
+                <a
+                  href="/reports"
+                  class="text-xs transition-colors text-neutral-400 hover:text-white font-sans"
+                  >View all</a
+                >
+              </div>
+              <div class="overflow-auto border border-neutral-800">
+                <table class="min-w-[720px] w-full text-sm">
+                  <thead class="bg-neutral-900">
+                    <tr class="border-b border-neutral-800">
+                      <th
+                        class="text-left text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Report
+                      </th>
+                      <th
+                        class="text-left text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Fund
+                      </th>
+                      <th
+                        class="text-left text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Period
+                      </th>
+                      <th
+                        class="text-left text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Status
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Net IRR
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        TVPI
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        DPI
+                      </th>
+                      <th
+                        class="text-left text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Uploaded
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Details
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-neutral-800">
+                    <tr class="hover:bg-neutral-800/50">
+                      <td class="px-4 py-3 text-white font-sans">
+                        Fund II Q2’25 Quarterly Report
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        Fund II (2021)
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        Q2’25
+                      </td>
+                      <td class="px-4 py-3">
+                        <div
+                          class="inline-flex items-center space-x-2 text-blue-400"
+                        >
+                          <span
+                            class="w-1.5 h-1.5 rounded-full bg-blue-500"
+                          ></span>
+                          <span class="text-neutral-300 font-sans"
+                            >Processing</span
+                          >
+                        </div>
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        15.4%
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        1.52x
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        0.31x
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        2m ago
+                      </td>
+                      <td class="px-4 py-3 text-right">
+                        <a
+                          href="/reports/fund-ii-q2-25"
+                          class="inline-flex items-center transition-colors text-neutral-300 hover:text-white"
+                        >
+                          <span class="sr-only font-sans">View details</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-4 h-4 stroke-[1.5]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
+                            <path d="m9 18 6-6-6-6"></path>
+                          </svg>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-neutral-800/50">
+                      <td class="px-4 py-3 text-white font-sans">
+                        Fund I Annual Letter 2024
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        Fund I (2018)
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        FY’24
+                      </td>
+                      <td class="px-4 py-3">
+                        <div
+                          class="inline-flex items-center space-x-2 text-emerald-400"
+                        >
+                          <span
+                            class="w-1.5 h-1.5 rounded-full bg-emerald-500"
+                          ></span>
+                          <span class="text-neutral-300 font-sans"
+                            >Completed</span
+                          >
+                        </div>
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        18.4%
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        1.72x
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        0.41x
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        1h ago
+                      </td>
+                      <td class="px-4 py-3 text-right">
+                        <a
+                          href="/reports/fund-i-fy24"
+                          class="inline-flex items-center transition-colors text-neutral-300 hover:text-white"
+                        >
+                          <span class="sr-only font-sans">View details</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-4 h-4 stroke-[1.5]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
+                            <path d="m9 18 6-6-6-6"></path>
+                          </svg>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-neutral-800/50">
+                      <td class="px-4 py-3 text-white font-sans">
+                        SPV A Capital Account Statements
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        SPV A (Co-Invest)
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        Q2’25
+                      </td>
+                      <td class="px-4 py-3">
+                        <div
+                          class="inline-flex items-center space-x-2 text-yellow-400"
+                        >
+                          <span
+                            class="w-1.5 h-1.5 rounded-full bg-yellow-500"
+                          ></span>
+                          <span class="text-neutral-300 font-sans">Queued</span>
+                        </div>
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-500 font-sans"
+                      >
+                        —
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-500 font-sans"
+                      >
+                        —
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-500 font-sans"
+                      >
+                        —
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        ETA 10m
+                      </td>
+                      <td class="px-4 py-3 text-right">
+                        <a
+                          href="/reports/spv-a-q2-25"
+                          class="inline-flex items-center transition-colors text-neutral-300 hover:text-white"
+                        >
+                          <span class="sr-only font-sans">View details</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-4 h-4 stroke-[1.5]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
+                            <path d="m9 18 6-6-6-6"></path>
+                          </svg>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Portfolio Companies Table -->
+            <div
+              class="border rounded-xl p-6 hover:shadow-sm transition-shadow md:col-span-2 lg:col-span-3 xl:col-span-4 bg-neutral-900 border-neutral-800"
+            >
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-medium text-white font-sans">
+                  Portfolio Companies
+                </h3>
+                <a
+                  href="/companies"
+                  class="text-xs transition-colors text-neutral-400 hover:text-white font-sans"
+                  >View all</a
+                >
+              </div>
+              <div class="overflow-auto border border-neutral-800">
+                <table class="min-w-[920px] w-full text-sm">
+                  <thead class="bg-neutral-900">
+                    <tr class="border-b border-neutral-800">
+                      <th
+                        class="text-left text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Company
+                      </th>
+                      <th
+                        class="text-left text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Sector
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        ARR
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        QoQ Growth
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Burn
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Runway
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Ownership
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Last Valuation
+                      </th>
+                      <th
+                        class="text-right text-xs uppercase tracking-wide text-neutral-500 px-4 py-3 font-sans"
+                      >
+                        Details
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-neutral-800">
+                    <tr class="hover:bg-neutral-800/50">
+                      <td class="px-4 py-3 text-white font-sans">Nimbus AI</td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        AI/ML
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        $72.4M
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        +42%
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        -$2.1M/mo
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        14 mo
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        11%
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        Q2’25 • $1.6B
+                      </td>
+                      <td class="px-4 py-3 text-right">
+                        <a
+                          href="/companies/nimbus-ai"
+                          class="inline-flex items-center transition-colors text-neutral-300 hover:text-white"
+                        >
+                          <span class="sr-only font-sans">View Nimbus AI</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-4 h-4 stroke-[1.5]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
+                            <path d="m9 18 6-6-6-6"></path>
+                          </svg>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-neutral-800/50">
+                      <td class="px-4 py-3 text-white font-sans">ArcPay</td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        Fintech
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        $38.9M
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        +28%
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        -$3.2M/mo
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-yellow-400 font-sans"
+                      >
+                        5 mo
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        9%
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        Q1’25 • $820M
+                      </td>
+                      <td class="px-4 py-3 text-right">
+                        <a
+                          href="/companies/arcpay"
+                          class="inline-flex items-center transition-colors text-neutral-300 hover:text-white"
+                        >
+                          <span class="sr-only font-sans">View ArcPay</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-4 h-4 stroke-[1.5]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
+                            <path d="m9 18 6-6-6-6"></path>
+                          </svg>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-neutral-800/50">
+                      <td class="px-4 py-3 text-white font-sans">
+                        Helio Health
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">
+                        Healthcare
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        $21.5M
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        +19%
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        -$1.4M/mo
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-yellow-400 font-sans"
+                      >
+                        7 mo
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        7%
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        Q2’25 • $520M
+                      </td>
+                      <td class="px-4 py-3 text-right">
+                        <a
+                          href="/companies/helio-health"
+                          class="inline-flex items-center transition-colors text-neutral-300 hover:text-white"
+                        >
+                          <span class="sr-only font-sans"
+                            >View Helio Health</span
+                          >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-4 h-4 stroke-[1.5]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
+                            <path d="m9 18 6-6-6-6"></path>
+                          </svg>
+                        </a>
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-neutral-800/50">
+                      <td class="px-4 py-3 text-white font-sans">
+                        Talon Cloud
+                      </td>
+                      <td class="px-4 py-3 text-neutral-300 font-sans">SaaS</td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        $44.2M
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        +33%
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        -$1.1M/mo
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        18 mo
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        5%
+                      </td>
+                      <td
+                        class="px-4 py-3 text-right text-neutral-300 font-sans"
+                      >
+                        Q2’25 • $940M
+                      </td>
+                      <td class="px-4 py-3 text-right">
+                        <a
+                          href="/companies/talon-cloud"
+                          class="inline-flex items-center transition-colors text-neutral-300 hover:text-white"
+                        >
+                          <span class="sr-only font-sans"
+                            >View Talon Cloud</span
+                          >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-4 h-4 stroke-[1.5]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                          >
+                            <path d="m9 18 6-6-6-6"></path>
+                          </svg>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Vintage Performance Chart
+      const vintageCtx = document.getElementById("vintageChart");
+      if (vintageCtx) {
+        const gradient = vintageCtx
+          .getContext("2d")
+          .createLinearGradient(0, 0, 0, 180);
+        gradient.addColorStop(0, "rgba(59,130,246,0.35)");
+        gradient.addColorStop(1, "rgba(59,130,246,0.05)");
+
+        new Chart(vintageCtx, {
+          type: "line",
+          data: {
+            labels: ["Q1’24", "Q2’24", "Q3’24", "Q4’24", "Q1’25", "Q2’25"],
+            datasets: [
+              {
+                label: "2018 Vintage",
+                data: [16.2, 16.9, 17.4, 17.8, 18.1, 18.4],
+                tension: 0.35,
+                borderColor: "#60a5fa",
+                backgroundColor: gradient,
+                borderWidth: 2,
+                fill: true,
+                pointRadius: 0,
+              },
+              {
+                label: "2021 Vintage",
+                data: [12.1, 12.9, 13.5, 14.2, 15.0, 15.4],
+                tension: 0.35,
+                borderColor: "#a78bfa",
+                backgroundColor: "transparent",
+                borderWidth: 2,
+                pointRadius: 0,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                mode: "index",
+                intersect: false,
+                backgroundColor: "rgba(23,23,23,0.9)",
+                borderColor: "#404040",
+                borderWidth: 1,
+                titleColor: "#fff",
+                bodyColor: "#e5e5e5",
+              },
+            },
+            scales: {
+              x: {
+                grid: { color: "rgba(64,64,64,0.4)", drawBorder: false },
+                ticks: { color: "#a3a3a3", font: { size: 11 } },
+              },
+              y: {
+                grid: { color: "rgba(64,64,64,0.4)", drawBorder: false },
+                ticks: {
+                  color: "#a3a3a3",
+                  font: { size: 11 },
+                  callback: (value) => value + "%",
+                },
+                suggestedMin: 10,
+                suggestedMax: 20,
+              },
+            },
+          },
+        });
+      }
+
+      // Sector Exposure Doughnut
+      const exposureCtx = document.getElementById("exposureChart");
+      if (exposureCtx) {
+        new Chart(exposureCtx, {
+          type: "doughnut",
+          data: {
+            labels: ["SaaS", "Fintech", "AI/ML", "Healthcare", "Other"],
+            datasets: [
+              {
+                data: [34, 26, 18, 12, 10],
+                backgroundColor: [
+                  "#60a5fa",
+                  "#34d399",
+                  "#a78bfa",
+                  "#f59e0b",
+                  "#ef4444",
+                ],
+                borderWidth: 0,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: "62%",
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: "rgba(23,23,23,0.9)",
+                borderColor: "#404040",
+                borderWidth: 1,
+                titleColor: "#fff",
+                bodyColor: "#e5e5e5",
+                callbacks: {
+                  label: (ctx) => `${ctx.label}: ${ctx.parsed}%`,
+                },
+              },
+            },
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

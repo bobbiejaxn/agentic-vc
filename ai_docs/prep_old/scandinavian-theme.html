@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VC Portfolio OS - Scandinavian Theme Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Geist', sans-serif;
+            background: oklch(0.9924 0 0);
+            color: oklch(0.2697 0 0);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: all 0.2s ease-out;
+        }
+
+        /* Theme Controls */
+        .theme-controls {
+            display: flex;
+            justify-content: center;
+            margin: 32px 0 48px 0;
+            gap: 16px;
+        }
+
+        .theme-toggle {
+            background: oklch(0.9894 0 0);
+            color: oklch(0.2697 0 0);
+            border: 1px solid oklch(0.2697 0 0);
+            padding: 12px 24px;
+            border-radius: 0px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+            font-family: 'Geist', sans-serif;
+            transition: all 0.2s ease-out;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+        }
+
+        .theme-toggle:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 2px 2px 0px 0px oklch(0.2697 0 0);
+            background: oklch(0.95 0 0);
+        }
+
+        .theme-toggle:active {
+            transform: translate(0px, 0px);
+            box-shadow: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 16px;
+            font-family: 'Geist', sans-serif;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, oklch(0.2697 0 0), oklch(0.5 0 0));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .dark .header h1 {
+            background: linear-gradient(135deg, oklch(0.95 0 0), oklch(0.7 0 0));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: oklch(0.5 0 0);
+            margin-bottom: 16px;
+            font-family: 'Geist', sans-serif;
+        }
+
+        .dark .header .subtitle {
+            color: oklch(0.8 0 0);
+        }
+
+        .header .instructions {
+            font-size: 1rem;
+            color: oklch(0.6 0 0);
+            max-width: 700px;
+            margin: 0 auto 32px auto;
+            background: oklch(0.9894 0 0);
+            padding: 24px;
+            border-radius: 0px;
+            border: 1px solid oklch(0.9 0 0);
+            text-align: left;
+        }
+
+        .dark .header .instructions {
+            color: oklch(0.7 0 0);
+            background: var(--primary-bg);
+            border-color: oklch(0.7 0 0);
+        }
+
+        .dark .dashboard-title {
+            color: oklch(0.95 0 0);
+        }
+
+        .dark .example-card h3 {
+            color: oklch(0.95 0 0);
+        }
+
+        .dark .design-system-title {
+            color: oklch(0.95 0 0);
+        }
+
+        .dark .design-system-subtitle {
+            color: oklch(0.8 0 0);
+        }
+
+        /* Scheme Selector */
+        .scheme-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 64px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .brutal-card {
+            background: oklch(0.9924 0 0);
+            border: 1px solid oklch(0.2697 0 0);
+            border-radius: 0px;
+            padding: 32px 24px;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .brutal-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px oklch(0.2697 0 0);
+            background: oklch(0.9894 0 0);
+        }
+
+        .brutal-card.active {
+            border-color: oklch(0.2697 0 0);
+            box-shadow: 4px 4px 0px 0px oklch(0.2697 0 0);
+            background: oklch(0.9894 0 0);
+        }
+
+        .brutal-card.active::before {
+            content: '✓ ACTIVE';
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: oklch(0.2697 0 0);
+            color: oklch(0.9924 0 0);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Geist', sans-serif;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+        }
+
+        .scheme-preview {
+            width: 96px;
+            height: 96px;
+            border-radius: 0px;
+            margin: 0 auto 24px;
+            border: 2px solid oklch(0.2697 0 0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scheme-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: oklch(0.2697 0 0);
+            margin-bottom: 8px;
+            font-family: 'Geist', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .scheme-description {
+            font-size: 1rem;
+            color: oklch(0.6 0 0);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        /* Color Swatches */
+        .swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .swatch {
+            padding: 24px 16px;
+            border-radius: 0px;
+            text-align: center;
+            font-weight: 600;
+            font-family: 'Geist', sans-serif;
+            border: 1px solid oklch(0.2697 0 0);
+            background: oklch(0.9924 0 0);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            transition: all 0.2s ease-out;
+        }
+
+        .swatch:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 2px 2px 0px 0px oklch(0.2697 0 0);
+        }
+
+        .swatch div:first-child {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .swatch div:last-child {
+            font-size: 0.875rem;
+            opacity: 0.7;
+            font-family: 'IBM Plex Mono', monospace;
+            letter-spacing: -0.025em;
+        }
+
+        /* Financial Typography */
+        .financial {
+            font-family: 'IBM Plex Mono', monospace;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.025em;
+            font-weight: 300;
+        }
+
+        .financial-lg {
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+
+        .financial-md {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* Buttons */
+        .brutal-button {
+            background: oklch(0.9924 0 0);
+            color: oklch(0.2697 0 0);
+            border: 1px solid oklch(0.2697 0 0);
+            padding: 12px 24px;
+            border-radius: 0px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.875rem;
+            font-family: 'Geist', sans-serif;
+            transition: all 0.2s ease-out;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+            margin: 8px 8px 8px 0;
+        }
+
+        .brutal-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 2px 2px 0px 0px oklch(0.2697 0 0);
+            background: oklch(0.95 0 0);
+        }
+
+        .brutal-button:active {
+            transform: translate(0px, 0px);
+            box-shadow: none;
+        }
+
+        /* Pills */
+        .sc-pill {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            font-family: 'Geist', sans-serif;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+            margin: 4px;
+            max-width: 24ch;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .sc-pill-success {
+            background: oklch(0.9 0.1 120);
+            color: oklch(0.3 0.2 120);
+            border: 1px solid oklch(0.3 0.2 120);
+        }
+
+        .sc-pill-warning {
+            background: oklch(0.9 0.1 60);
+            color: oklch(0.4 0.2 60);
+            border: 1px solid oklch(0.4 0.2 60);
+        }
+
+        .sc-pill-neutral {
+            background: oklch(0.95 0 0);
+            color: oklch(0.5 0 0);
+            border: 1px solid oklch(0.7 0 0);
+        }
+
+        /* Component Examples */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .example-card {
+            background: oklch(0.9894 0 0);
+            border: 1px solid oklch(0.9 0 0);
+            border-radius: 0px;
+            padding: 32px 24px;
+        }
+
+        .example-card h3 {
+            margin-bottom: 20px;
+            color: oklch(0.2697 0 0);
+            font-family: 'Geist', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        /* Inputs */
+        .brutal-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid oklch(0.2697 0 0);
+            border-radius: 0px;
+            background: oklch(0.9924 0 0);
+            color: oklch(0.2697 0 0);
+            font-family: 'Geist', sans-serif;
+            font-size: 0.875rem;
+            margin: 8px 0;
+            transition: all 0.2s ease-out;
+        }
+
+        .brutal-input:focus {
+            outline: none;
+            border-color: oklch(0.2697 0 0);
+            box-shadow: 2px 2px 0px 0px oklch(0.2697 0 0);
+            transform: translate(-2px, -2px);
+        }
+
+        .brutal-input::placeholder {
+            color: oklch(0.7 0 0);
+        }
+
+        /* Hero Metrics */
+        .hero-metric {
+            background: oklch(0.9924 0 0);
+            border: 1px solid oklch(0.2697 0 0);
+            border-radius: 0px;
+            padding: 32px 24px;
+            margin: 16px 0;
+            transition: all 0.2s ease-out;
+        }
+
+        .hero-metric:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 4px 4px 0px 0px oklch(0.2697 0 0);
+            background: oklch(0.9894 0 0);
+        }
+
+        .hero-metric h3 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: oklch(0.5 0 0);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            font-family: 'Geist', sans-serif;
+        }
+
+        /* Theme Schemes */
+
+        /* Fjord Morning */
+        .fjord-morning {
+            --primary: oklch(0.2697 0 0);
+            --primary-light: oklch(0.6 0 0);
+            --primary-bg: oklch(0.9894 0 0);
+            --accent: oklch(0.7 0.1 180);
+            --success: oklch(0.3 0.2 120);
+            --warning: oklch(0.4 0.2 60);
+            --error: oklch(0.4 0.2 0);
+        }
+
+        .fjord-morning.dark {
+            background: oklch(0.193 0 0);
+            color: oklch(0.95 0 0);
+            --primary: oklch(0.95 0 0);
+            --primary-light: oklch(0.8 0 0);
+            --primary-bg: oklch(0.193 0 0);
+            --accent: oklch(0.8 0.1 180);
+            --success: oklch(0.7 0.2 120);
+            --warning: oklch(0.8 0.2 60);
+            --error: oklch(0.8 0.2 0);
+        }
+
+        /* Nordic Steel */
+        .nordic-steel {
+            --primary: oklch(0.3 0 0);
+            --primary-light: oklch(0.5 0 0);
+            --primary-bg: oklch(0.98 0 0);
+            --accent: oklch(0.6 0.05 220);
+            --success: oklch(0.35 0.15 120);
+            --warning: oklch(0.45 0.15 45);
+            --error: oklch(0.45 0.15 0);
+        }
+
+        .nordic-steel.dark {
+            background: oklch(0.15 0 0);
+            color: oklch(0.9 0 0);
+            --primary: oklch(0.9 0 0);
+            --primary-light: oklch(0.7 0 0);
+            --primary-bg: oklch(0.15 0 0);
+            --accent: oklch(0.7 0.05 220);
+            --success: oklch(0.6 0.15 120);
+            --warning: oklch(0.7 0.15 45);
+            --error: oklch(0.7 0.15 0);
+        }
+
+        /* Arctic Mist */
+        .arctic-mist {
+            --primary: oklch(0.4 0 0);
+            --primary-light: oklch(0.6 0 0);
+            --primary-bg: oklch(0.99 0 0);
+            --accent: oklch(0.65 0.08 200);
+            --success: oklch(0.4 0.18 140);
+            --warning: oklch(0.5 0.18 50);
+            --error: oklch(0.5 0.18 10);
+        }
+
+        .arctic-mist.dark {
+            background: oklch(0.12 0 0);
+            color: oklch(0.92 0 0);
+            --primary: oklch(0.92 0 0);
+            --primary-light: oklch(0.75 0 0);
+            --primary-bg: oklch(0.12 0 0);
+            --accent: oklch(0.75 0.08 200);
+            --success: oklch(0.65 0.18 140);
+            --warning: oklch(0.75 0.18 50);
+            --error: oklch(0.75 0.18 10);
+        }
+
+        /* Midnight Oslo */
+        .midnight-oslo {
+            --primary: oklch(0.2 0 0);
+            --primary-light: oklch(0.4 0 0);
+            --primary-bg: oklch(0.985 0 0);
+            --accent: oklch(0.55 0.12 240);
+            --success: oklch(0.3 0.25 130);
+            --warning: oklch(0.4 0.25 40);
+            --error: oklch(0.4 0.25 5);
+        }
+
+        .midnight-oslo.dark {
+            background: oklch(0.08 0 0);
+            color: oklch(0.95 0 0);
+            --primary: oklch(0.95 0 0);
+            --primary-light: oklch(0.85 0 0);
+            --primary-bg: oklch(0.08 0 0);
+            --accent: oklch(0.85 0.12 240);
+            --success: oklch(0.75 0.25 130);
+            --warning: oklch(0.85 0.25 40);
+            --error: oklch(0.85 0.25 5);
+        }
+
+        /* Dark Mode Card Behavior */
+        .dark .brutal-card {
+            border-color: oklch(0.95 0 0);
+            background: var(--primary-bg);
+            color: oklch(0.95 0 0);
+        }
+
+        .dark .brutal-card:hover {
+            box-shadow: 4px 4px 0px 0px oklch(0.95 0 0);
+            background: oklch(0 0 0);
+        }
+
+        .dark .brutal-card:hover * {
+            color: oklch(0.95 0 0);
+        }
+
+        .dark .hero-metric {
+            border-color: oklch(0.95 0 0);
+            background: var(--primary-bg);
+            color: oklch(0.95 0 0);
+        }
+
+        .dark .hero-metric:hover {
+            box-shadow: 4px 4px 0px 0px oklch(0.95 0 0);
+            background: oklch(0 0 0);
+        }
+
+        .dark .hero-metric:hover * {
+            color: oklch(0.95 0 0);
+        }
+
+        .dark .example-card {
+            border-color: oklch(0.7 0 0);
+            background: var(--primary-bg);
+            color: oklch(0.95 0 0);
+        }
+
+        .dark .theme-toggle {
+            background: var(--primary-bg);
+            color: oklch(0.95 0 0);
+            border-color: oklch(0.95 0 0);
+        }
+
+        .dark .theme-toggle:hover {
+            background: oklch(0 0 0);
+            box-shadow: 2px 2px 0px 0px oklch(0.95 0 0);
+        }
+
+        .dark .brutal-button {
+            background: var(--primary-bg);
+            color: oklch(0.95 0 0);
+            border-color: oklch(0.95 0 0);
+        }
+
+        .dark .brutal-button:hover {
+            background: oklch(0 0 0);
+            box-shadow: 2px 2px 0px 0px oklch(0.95 0 0);
+        }
+
+        .dark .brutal-input {
+            background: var(--primary-bg);
+            color: oklch(0.95 0 0);
+            border-color: oklch(0.95 0 0);
+        }
+
+        .dark .brutal-input:focus {
+            border-color: oklch(0.95 0 0);
+            box-shadow: 2px 2px 0px 0px oklch(0.95 0 0);
+        }
+
+        .dark .swatch {
+            border-color: oklch(0.95 0 0);
+            background: var(--primary-bg);
+            color: oklch(0.95 0 0);
+        }
+
+        .dark .swatch:hover {
+            box-shadow: 2px 2px 0px 0px oklch(0.95 0 0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            .scheme-selector {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .component-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="fjord-morning">
+    <div class="container">
+        <div class="header">
+            <h1>VC Portfolio OS</h1>
+            <div class="subtitle">Scandinavian Theme System</div>
+            <div class="instructions">
+                👆 Click each theme below to experience Scandinavian minimalism with brutal elegance.
+                These themes follow the pure grayscale OKLCH color system with 0% hue, 0% saturation - no blue tints, only true Scandinavian minimalism.
+                <br><br>
+                Each theme embodies "Lagom" (just right balance), "Hygge" (warmth and comfort), and brutal elegance with thin solid borders and micro-animations.
+            </div>
+        </div>
+
+        <div class="theme-controls">
+            <button class="theme-toggle" onclick="toggleDarkMode()">
+                <span id="theme-icon">🌙</span>
+                <span id="theme-text">Dark Mode</span>
+            </button>
+        </div>
+
+        <div class="scheme-selector">
+            <div class="brutal-card active" onclick="setScheme('fjord-morning')" id="fjord-morning-card">
+                <div class="scheme-preview" style="background: linear-gradient(135deg, oklch(0.9894 0 0), oklch(0.9 0.1 180));"></div>
+                <div class="scheme-name">Fjord Morning</div>
+                <div class="scheme-description">Clean dawn aesthetic with warm, professional tones for optimal clarity and trust</div>
+                <div class="swatch-grid" style="margin-top: 24px;">
+                    <div class="swatch" style="background: oklch(0.2697 0 0); color: oklch(0.9924 0 0);">
+                        <div>Primary</div>
+                        <div>oklch(0.2697 0 0)</div>
+                    </div>
+                    <div class="swatch" style="background: oklch(0.9 0.1 180); color: oklch(0.3 0.2 180);">
+                        <div>Accent</div>
+                        <div>oklch(0.9 0.1 180)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="brutal-card" onclick="setScheme('nordic-steel')" id="nordic-steel-card">
+                <div class="scheme-preview" style="background: linear-gradient(135deg, oklch(0.98 0 0), oklch(0.6 0.05 220));"></div>
+                <div class="scheme-name">Nordic Steel</div>
+                <div class="scheme-description">Technical sophistication with metallic precision for analytical interfaces</div>
+                <div class="swatch-grid" style="margin-top: 24px;">
+                    <div class="swatch" style="background: oklch(0.3 0 0); color: oklch(0.9924 0 0);">
+                        <div>Primary</div>
+                        <div>oklch(0.3 0 0)</div>
+                    </div>
+                    <div class="swatch" style="background: oklch(0.6 0.05 220); color: oklch(0.3 0.15 220);">
+                        <div>Accent</div>
+                        <div>oklch(0.6 0.05 220)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="brutal-card" onclick="setScheme('arctic-mist')" id="arctic-mist-card">
+                <div class="scheme-preview" style="background: linear-gradient(135deg, oklch(0.99 0 0), oklch(0.65 0.08 200));"></div>
+                <div class="scheme-name">Arctic Mist</div>
+                <div class="scheme-description">Soft atmospheric minimalism with ethereal clarity for focused work</div>
+                <div class="swatch-grid" style="margin-top: 24px;">
+                    <div class="swatch" style="background: oklch(0.4 0 0); color: oklch(0.9924 0 0);">
+                        <div>Primary</div>
+                        <div>oklch(0.4 0 0)</div>
+                    </div>
+                    <div class="swatch" style="background: oklch(0.65 0.08 200); color: oklch(0.35 0.18 200);">
+                        <div>Accent</div>
+                        <div>oklch(0.65 0.08 200)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="brutal-card" onclick="setScheme('midnight-oslo')" id="midnight-oslo-card">
+                <div class="scheme-preview" style="background: linear-gradient(135deg, oklch(0.985 0 0), oklch(0.55 0.12 240));"></div>
+                <div class="scheme-name">Midnight Oslo</div>
+                <div class="scheme-description">Dramatic high-contrast elegance with Nordic sophistication for executive interfaces</div>
+                <div class="swatch-grid" style="margin-top: 24px;">
+                    <div class="swatch" style="background: oklch(0.2 0 0); color: oklch(0.9924 0 0);">
+                        <div>Primary</div>
+                        <div>oklch(0.2 0 0)</div>
+                    </div>
+                    <div class="swatch" style="background: oklch(0.55 0.12 240); color: oklch(0.25 0.22 240);">
+                        <div>Accent</div>
+                        <div>oklch(0.55 0.12 240)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin: 64px auto; max-width: 1100px;">
+            <h2 class="dashboard-title" style="font-size: 2rem; font-weight: 300; margin-bottom: 32px; color: oklch(0.2697 0 0); text-align: center; font-family: 'Geist', sans-serif; letter-spacing: -0.02em;">Portfolio Intelligence Dashboard</h2>
+
+            <div class="component-grid">
+                <!-- Portfolio Overview -->
+                <div class="example-card">
+                    <h3>Portfolio Overview</h3>
+                    <div class="hero-metric">
+                        <h3>Total Portfolio Value</h3>
+                        <div class="financial financial-lg">€24.8M</div>
+                        <div class="sc-pill-success">+18.2% YoY</div>
+                    </div>
+                    <div class="hero-metric">
+                        <h3>Active Investments</h3>
+                        <div class="financial financial-md">47</div>
+                        <div class="sc-pill-neutral">12 funds + 35 direct</div>
+                    </div>
+                    <button class="brutal-button">View Detailed Analytics</button>
+                    <button class="brutal-button">Export Report</button>
+                </div>
+
+                <!-- Document Processing -->
+                <div class="example-card">
+                    <h3>Document Processing</h3>
+                    <input class="brutal-input" placeholder="Upload fund reports (PDF, Excel)..." />
+                    <div style="margin: 20px 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="color: oklch(0.5 0 0); font-size: 0.875rem; font-weight: 600;">Processing Progress</span>
+                            <span style="color: oklch(0.6 0 0); font-size: 0.875rem; font-family: 'IBM Plex Mono', monospace;">8/12 documents</span>
+                        </div>
+                        <div style="height: 8px; background: oklch(0.95 0 0); border-radius: 0px;">
+                            <div style="width: 67%; height: 100%; background: oklch(0.2697 0 0); border-radius: 0px;"></div>
+                        </div>
+                    </div>
+                    <button class="brutal-button">Start Processing</button>
+                    <div class="sc-pill-warning">Quality check pending</div>
+                </div>
+
+                <!-- Network Intelligence -->
+                <div class="example-card">
+                    <h3>Co-Investor Network</h3>
+                    <div class="hero-metric">
+                        <h3>Network Quality Score</h3>
+                        <div class="financial financial-md">8.7/10</div>
+                        <div class="sc-pill-success">Top quartile</div>
+                    </div>
+                    <div style="margin: 16px 0;">
+                        <div style="color: oklch(0.6 0 0); margin-bottom: 8px;">New connections this quarter:</div>
+                        <div class="sc-pill-neutral">Sequoia Capital</div>
+                        <div class="sc-pill-neutral">Accel Partners</div>
+                        <div class="sc-pill-neutral">Khosla Ventures</div>
+                    </div>
+                    <button class="brutal-button">Explore Network</button>
+                    <button class="brutal-button">Request Introduction</button>
+                </div>
+
+                <!-- Risk Management -->
+                <div class="example-card">
+                    <h3>Risk Management</h3>
+                    <div class="hero-metric">
+                        <h3>Risk Assessment</h3>
+                        <div class="financial financial-md">Moderate</div>
+                        <div class="sc-pill-warning">3 alerts</div>
+                    </div>
+                    <div style="margin: 16px 0;">
+                        <div class="sc-pill-warning">⚠ Concentration: 35% AI sector</div>
+                        <div class="sc-pill-success">✓ All funds above benchmark</div>
+                        <div class="sc-pill-neutral">ℹ Market volatility high</div>
+                    </div>
+                    <button class="brutal-button">View Risk Analysis</button>
+                    <button class="brutal-button">Download Report</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design System Info -->
+        <div style="margin: 80px auto; max-width: 1100px; background: oklch(0.9894 0 0); border: 1px solid oklch(0.9 0 0); border-radius: 0px; padding: 48px;">
+            <h2 class="design-system-title" style="font-size: 2rem; font-weight: 300; margin-bottom: 24px; color: oklch(0.2697 0 0); font-family: 'Geist', sans-serif; letter-spacing: -0.02em;">Scandinavian Design System</h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-bottom: 32px;">
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; color: oklch(0.2697 0 0);">Core Principles</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• <strong>Lagom</strong>: Just right balance</li>
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• <strong>Hygge</strong>: Warmth and comfort</li>
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• <strong>Brutal Elegance</strong>: Sharp, precise design</li>
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• <strong>Functional Beauty</strong>: Purpose-driven</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; color: oklch(0.2697 0 0);">Technical Standards</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• Pure grayscale OKLCH colors</li>
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• 8pt grid system (8, 16, 24, 32px)</li>
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• Sharp edges (0px border-radius)</li>
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• Thin solid borders (1px)</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; color: oklch(0.2697 0 0);">Typography</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• Geist (headings & body)</li>
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• IBM Plex Mono (financial)</li>
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• 4 sizes maximum</li>
+                        <li style="margin-bottom: 8px; color: oklch(0.5 0 0);">• 3 weights maximum</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="text-align: center; padding: 24px; background: oklch(0.9924 0 0); border: 1px solid oklch(0.2697 0 0);">
+                <p style="font-size: 1.125rem; color: oklch(0.4 0 0); font-weight: 600; margin-bottom: 8px;">Recommended Default Theme</p>
+                <p style="color: oklch(0.5 0 0);"><strong>Fjord Morning</strong> provides optimal balance of professional clarity and visual comfort for sophisticated investment professionals.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isDarkMode = false;
+        let currentScheme = 'fjord-morning';
+
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            updateTheme();
+
+            const icon = document.getElementById('theme-icon');
+            const text = document.getElementById('theme-text');
+
+            if (isDarkMode) {
+                icon.textContent = '☀️';
+                text.textContent = 'Light Mode';
+            } else {
+                icon.textContent = '🌙';
+                text.textContent = 'Dark Mode';
+            }
+        }
+
+        function setScheme(scheme) {
+            currentScheme = scheme;
+
+            // Update card active states
+            document.querySelectorAll('.brutal-card').forEach(card => {
+                card.classList.remove('active');
+            });
+
+            document.getElementById(scheme + '-card').classList.add('active');
+
+            updateTheme();
+        }
+
+        function updateTheme() {
+            const body = document.body;
+            body.className = currentScheme + (isDarkMode ? ' dark' : '');
+
+            // Update dynamic colors based on current scheme
+            const root = document.documentElement;
+            if (window.schemes && window.schemes[currentScheme]) {
+                const colors = isDarkMode ? window.schemes[currentScheme].dark : window.schemes[currentScheme].light;
+
+                // Apply CSS variables dynamically
+                Object.entries(colors).forEach(([key, value]) => {
+                    root.style.setProperty(`--${key}`, value);
+                });
+            }
+        }
+
+        // Define scheme colors
+        window.schemes = {
+            'fjord-morning': {
+                light: {
+                    primary: 'oklch(0.2697 0 0)',
+                    accent: 'oklch(0.9 0.1 180)',
+                    success: 'oklch(0.3 0.2 120)',
+                    warning: 'oklch(0.4 0.2 60)',
+                    error: 'oklch(0.4 0.2 0)'
+                },
+                dark: {
+                    primary: 'oklch(0.95 0 0)',
+                    accent: 'oklch(0.8 0.1 180)',
+                    success: 'oklch(0.7 0.2 120)',
+                    warning: 'oklch(0.8 0.2 60)',
+                    error: 'oklch(0.8 0.2 0)'
+                }
+            },
+            'nordic-steel': {
+                light: {
+                    primary: 'oklch(0.3 0 0)',
+                    accent: 'oklch(0.6 0.05 220)',
+                    success: 'oklch(0.35 0.15 120)',
+                    warning: 'oklch(0.45 0.15 45)',
+                    error: 'oklch(0.45 0.15 0)'
+                },
+                dark: {
+                    primary: 'oklch(0.9 0 0)',
+                    accent: 'oklch(0.7 0.05 220)',
+                    success: 'oklch(0.6 0.15 120)',
+                    warning: 'oklch(0.7 0.15 45)',
+                    error: 'oklch(0.7 0.15 0)'
+                }
+            },
+            'arctic-mist': {
+                light: {
+                    primary: 'oklch(0.4 0 0)',
+                    accent: 'oklch(0.65 0.08 200)',
+                    success: 'oklch(0.4 0.18 140)',
+                    warning: 'oklch(0.5 0.18 50)',
+                    error: 'oklch(0.5 0.18 10)'
+                },
+                dark: {
+                    primary: 'oklch(0.92 0 0)',
+                    accent: 'oklch(0.75 0.08 200)',
+                    success: 'oklch(0.65 0.18 140)',
+                    warning: 'oklch(0.75 0.18 50)',
+                    error: 'oklch(0.75 0.18 10)'
+                }
+            },
+            'midnight-oslo': {
+                light: {
+                    primary: 'oklch(0.2 0 0)',
+                    accent: 'oklch(0.55 0.12 240)',
+                    success: 'oklch(0.3 0.25 130)',
+                    warning: 'oklch(0.4 0.25 40)',
+                    error: 'oklch(0.4 0.25 5)'
+                },
+                dark: {
+                    primary: 'oklch(0.95 0 0)',
+                    accent: 'oklch(0.85 0.12 240)',
+                    success: 'oklch(0.75 0.25 130)',
+                    warning: 'oklch(0.85 0.25 40)',
+                    error: 'oklch(0.85 0.25 5)'
+                }
+            }
+        };
+
+        // Initialize theme
+        updateTheme();
+    </script>
+</body>
+</html>

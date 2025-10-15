@@ -1,0 +1,284 @@
+@tailwind base;
+
+@custom-variant dark (&:is(.dark *));
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Monochromatic Scandinavian Minimalism - Pure Grayscale System */
+    /* Light Mode Colors - Maximum restraint and sophistication */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 9%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Mode Colors - Warmer Scandinavian grays for human-friendly feel */
+    --background: 0 0% 8%; /* Warmer dark gray instead of harsh black */
+    --foreground: 0 0% 92%; /* Softer white for better readability */
+    --card: 0 0% 10%; /* Slightly lighter than background for subtle contrast */
+    --card-foreground: 0 0% 92%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 92%;
+    --primary: 0 0% 92%; /* Soft white for primary elements */
+    --primary-foreground: 0 0% 8%;
+    --secondary: 0 0% 18%; /* Warmer gray for secondary elements */
+    --secondary-foreground: 0 0% 92%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 65%; /* Softer muted text */
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 92%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 9%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 9%;
+    --border: 0 0% 20%; /* Warmer border color */
+    --input: 0 0% 20%;
+    --ring: 0 0% 75%; /* Softer ring color */
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  /* Modern OKLCH Color System for Better Perceptual Accuracy */
+  .dark {
+    /* Warmer Scandinavian grays using OKLCH for better human perception */
+    --oklch-background: oklch(0.12 0 0); /* Warmer dark gray */
+    --oklch-foreground: oklch(0.92 0 0); /* Softer white */
+    --oklch-card: oklch(0.15 0 0); /* Subtle card contrast */
+    --oklch-muted: oklch(0.25 0 0); /* Warmer muted background */
+    --oklch-border: oklch(0.3 0 0); /* Softer borders */
+    --oklch-accent: oklch(0.2 0 0); /* Minimal accent */
+  }
+
+  /* Typography System - Playfair for headings, Inter for body */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-playfair), serif;
+    font-weight: 400;
+  }
+
+  /* Financial data monospaced font class - Space Mono for perfect alignment */
+  .financial-data {
+    font-family: var(--font-space-mono), "SF Mono", "Monaco", "Inconsolata",
+      "Roboto Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.025em;
+  }
+
+  /* Scandinavian color palette - warmer, more human grays */
+  .scandinavian-gray-50 {
+    color: #fafafa;
+  }
+  .scandinavian-gray-100 {
+    color: #f5f5f5;
+  }
+  .scandinavian-gray-200 {
+    color: #e5e5e5;
+  }
+  .scandinavian-gray-300 {
+    color: #d4d4d4;
+  }
+  .scandinavian-gray-400 {
+    color: #a3a3a3;
+  }
+  .scandinavian-gray-500 {
+    color: #737373;
+  }
+  .scandinavian-gray-600 {
+    color: #525252;
+  }
+  .scandinavian-gray-700 {
+    color: #404040;
+  }
+  .scandinavian-gray-800 {
+    color: #262626;
+  }
+  .scandinavian-gray-900 {
+    color: #171717;
+  }
+
+  /* Scandinavian card styling with OKLCH colors and rounded corners */
+  .scandinavian-card {
+    border: 1px solid hsl(var(--border)); /* Use CSS variables for proper theming */
+    border-radius: 12px; /* Rounded corners for organic, human-friendly feel */
+    background: hsl(var(--card)); /* Use CSS variables for proper theming */
+    color: hsl(
+      var(--card-foreground)
+    ); /* Use CSS variables for proper theming */
+    transition: all 0.2s ease; /* Gentle transitions per handbook */
+    padding: 1.5rem; /* 24px - divisible by 8 */
+  }
+
+  .scandinavian-card:hover {
+    border-color: hsl(var(--border)); /* Use CSS variables for proper theming */
+    background: hsl(var(--card)); /* Use CSS variables for proper theming */
+  }
+
+  /* Financial data monospaced font styling */
+  .financial-data {
+    font-family: var(--font-space-mono), "SF Mono", "Monaco", "Inconsolata",
+      "Roboto Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.025em; /* Refined letter-spacing for optimal readability */
+  }
+
+  /* Tabular numbers utility */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  /* Modern OKLCH color system for better perceptual accuracy */
+  .oklch-background {
+    background: oklch(1 0 0); /* Pure white - 60% */
+  }
+
+  .oklch-foreground {
+    color: oklch(0.145 0 0); /* Dark gray - 30% */
+  }
+
+  .oklch-muted {
+    background: oklch(0.96 0 0); /* Light gray */
+  }
+
+  .oklch-muted-foreground {
+    color: oklch(0.45 0 0); /* Medium gray */
+  }
+
+  .oklch-border {
+    border-color: oklch(0.9 0 0); /* Subtle borders */
+  }
+
+  /* 8pt Grid System Implementation */
+  .scandinavian-spacing {
+    padding: 2rem; /* 32px - divisible by 8 */
+    gap: 1.5rem; /* 24px - divisible by 8 */
+    margin: 1rem; /* 16px - divisible by 8 */
+  }
+
+  .scandinavian-padding {
+    padding: 1.5rem; /* 24px - divisible by 8 */
+  }
+
+  .scandinavian-gap {
+    gap: 1rem; /* 16px - divisible by 8 */
+  }
+
+  /* Micro-interactions for buttons and interactive elements */
+  .scandinavian-button {
+    transition: all 0.2s ease; /* Gentle transitions per handbook */
+    border-radius: 8px; /* Rounded corners for organic feel */
+  }
+
+  .scandinavian-button:hover {
+    background: oklch(0.98 0 0); /* Subtle background change */
+    border-color: oklch(0.8 0 0); /* Slightly darker border */
+  }
+
+  /* Navigation micro-interactions */
+  .scandinavian-nav {
+    border-radius: 8px 0 0 8px; /* Rounded right corners for organic feel */
+    transition: all 0.2s ease;
+  }
+
+  .scandinavian-nav:hover {
+    background: oklch(
+      0.98 0 0
+    ); /* Subtle background change with transparency */
+  }
+
+  /* Brand elements with Playfair Display */
+  .font-brand {
+    font-family: var(--font-playfair), serif;
+    font-weight: 400;
+  }
+
+  /* Heading elements with Playfair Display */
+  .font-heading {
+    font-family: var(--font-playfair), serif;
+    font-weight: 400;
+  }
+}
+
+:root {
+  /* Scandinavian sidebar colors - no blue tones */
+  --sidebar: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(0 0% 9%);
+  --sidebar-primary: hsl(0 0% 9%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(0 0% 96%);
+  --sidebar-accent-foreground: hsl(0 0% 9%);
+  --sidebar-border: hsl(0 0% 89%);
+  --sidebar-ring: hsl(0 0% 9%);
+}
+
+.dark {
+  /* Scandinavian dark sidebar colors - no blue tones */
+  --sidebar: hsl(0 0% 8%);
+  --sidebar-foreground: hsl(0 0% 92%);
+  --sidebar-primary: hsl(0 0% 92%);
+  --sidebar-primary-foreground: hsl(0 0% 8%);
+  --sidebar-accent: hsl(0 0% 18%);
+  --sidebar-accent-foreground: hsl(0 0% 92%);
+  --sidebar-border: hsl(0 0% 20%);
+  --sidebar-ring: hsl(0 0% 75%);
+}
+
+@theme inline {
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
