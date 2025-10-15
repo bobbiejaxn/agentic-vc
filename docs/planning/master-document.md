@@ -2,7 +2,7 @@
 
 ### End Goal
 
-My app helps **venture capital investors (angels, LPs, and GPs)** achieve **automated portfolio management with 95%+ accurate fund data extraction and 20x faster investment decisions** using **autonomous multi-agent AI systems with human-in-the-loop oversight**.
+My app helps **venture capital investors (angels, LPs, and GPs)** achieve **automated portfolio management with 95%+ accurate fund data extraction and 20x faster investment decisions** using **Google's Agent Development Kit (ADK)** / **autonomous multi-agent AI systems with human-in-the-loop oversight**.
 
 ### Specific Problem
 

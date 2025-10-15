@@ -46,7 +46,7 @@
 ┌─────────────────────────────────────────────────────────────┐
 │                   AI Layer                                  │
 ├─────────────────────────────────────────────────────────────┤
-│  Claude Agent SDK + BAML                                   │
+│  Google Agent Development Kit (ADK)                        │
 │  • Document Processing Agents                              │
 │  • Portfolio Intelligence Agents                           │
 │  • Network Analysis Agents                                 │
@@ -61,7 +61,7 @@
 │  • OpenAI GPT-4 API                                        │
 │  • Vector Database (Pinecone/Weaviate)                    │
 │  • Email Services (SendGrid)                              │
-│  • File Storage (AWS S3)                                  │
+│  • File Storage (Convex Blob Storage)                     │
 └─────────────────────────────────────────────────────────────┘
                                 │
                                 ▼
@@ -118,7 +118,7 @@
 
 ### 4. AI Processing Layer
 
-**Technology**: Claude Agent SDK + BAML
+**Technology**: Google Agent Development Kit (ADK)
 **Purpose**: AI-powered document processing and analysis
 **Key Features**:
 
@@ -145,7 +145,7 @@
    Markdown Content → Hybrid Chunker → Vector Embeddings
 
 4. AI Extraction
-   Vector Embeddings → Claude Agents → Structured Data
+   Vector Embeddings → Google ADK Agents → Structured Data
 
 5. Data Integration
    Structured Data → Convex Database → Portfolio Updates
@@ -255,7 +255,7 @@ interface AgentMessage {
    Document → OCR → Chunking → Embedding → Agent Processing
 
 2. Agent Execution
-   Agent Input → Claude API → Structured Output → Validation
+   Agent Input → Google ADK API → Structured Output → Validation
 
 3. Result Aggregation
    Agent Results → Orchestrator → Final Extraction → Database
@@ -289,7 +289,7 @@ interface SecurityLayer {
   encryption: {
     atRest: "AES-256";
     inTransit: "TLS-1.3";
-    keyManagement: "AWS KMS";
+    keyManagement: "Convex Built-in";
   };
 }
 ```
@@ -352,10 +352,10 @@ interface ExternalIntegrations {
     authentication: "api-key";
   };
 
-  openai: {
-    gpt4: "gpt-4-turbo";
-    api: "https://api.openai.com";
-    authentication: "api-key";
+  google: {
+    adk: "google-agent-development-kit";
+    api: "https://aiplatform.googleapis.com";
+    authentication: "service-account";
   };
 
   sendgrid: {
@@ -364,10 +364,9 @@ interface ExternalIntegrations {
     authentication: "api-key";
   };
 
-  aws: {
-    s3: "file-storage";
-    kms: "key-management";
-    authentication: "iam-role";
+  convex: {
+    blobStorage: "file-storage";
+    authentication: "convex-auth";
   };
 }
 ```
@@ -494,14 +493,14 @@ interface DeploymentEnvironments {
 
   staging: {
     database: "convex-staging";
-    storage: "aws-s3";
+    storage: "convex-blob-staging";
     monitoring: "full";
     security: "production-like";
   };
 
   production: {
     database: "convex-prod";
-    storage: "aws-s3-encrypted";
+    storage: "convex-blob-prod";
     monitoring: "comprehensive";
     security: "strict";
   };

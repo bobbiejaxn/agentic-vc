@@ -21,9 +21,9 @@
 
 - **Frontend**: React 19 + TypeScript + Tailwind CSS v4 + shadcn/ui
 - **Backend**: Convex + TypeScript
-- **AI**: Claude Agent SDK + BAML + Mistral OCR
+- **AI**: Google Agent Development Kit (ADK) + Mistral OCR
 - **Database**: Convex with vector search
-- **Storage**: Convex storage + AWS S3
+- **Storage**: Convex blob storage
 - **Authentication**: Convex auth
 
 ---
@@ -380,12 +380,13 @@ export const processDocument = action({
 
 ### Week 4: AI Agent Integration
 
-#### Day 22-24: Claude Agent SDK Setup
+#### Day 22-24: Google Agent Development Kit (ADK) Setup
 
 ```typescript
 // convex/ai/agents.ts
 import { action } from "./_generated/server";
 import { v } from "convex/values";
+import { Agent } from "@google-cloud/aiplatform";
 
 export const extractData = action({
   args: {
@@ -397,16 +398,18 @@ export const extractData = action({
     });
     if (!document) throw new Error("Document not found");
 
-    // Initialize Claude Agent SDK
-    const agent = new ClaudeAgent({
-      apiKey: process.env.CLAUDE_API_KEY,
-      model: "claude-3-sonnet-20240229",
+    // Initialize Google ADK Agent
+    const agent = new Agent({
+      projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
+      location: process.env.GOOGLE_CLOUD_LOCATION,
+      agentId: process.env.VC_PORTFOLIO_AGENT_ID,
     });
 
-    // Portfolio extraction agent
+    // Portfolio extraction agent using ADK
     const portfolioAgent = new PortfolioExtractionAgent({
       document: document.markdownContent,
       documentType: document.documentType,
+      agent: agent,
     });
 
     const extractionResult = await portfolioAgent.extract();
@@ -417,7 +420,7 @@ export const extractData = action({
       extractionType: "fund_performance",
       extractedData: extractionResult.data,
       confidenceScore: extractionResult.confidence,
-      agentUsed: "portfolio-extraction-agent",
+      agentUsed: "google-adk-portfolio-agent",
     });
 
     // Update document status
@@ -429,12 +432,13 @@ export const extractData = action({
 });
 ```
 
-#### Day 25-28: Multi-Agent Orchestration
+#### Day 25-28: Multi-Agent Orchestration with Google ADK
 
 ```typescript
 // convex/ai/orchestrator.ts
 import { action } from "./_generated/server";
 import { v } from "convex/values";
+import { Agent, AgentOrchestrator } from "@google-cloud/aiplatform";
 
 export const orchestrateExtraction = action({
   args: {
@@ -446,16 +450,37 @@ export const orchestrateExtraction = action({
     });
     if (!document) throw new Error("Document not found");
 
-    // Initialize multiple agents
+    // Initialize Google ADK Agent Orchestrator
+    const orchestrator = new AgentOrchestrator({
+      projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
+      location: process.env.GOOGLE_CLOUD_LOCATION,
+    });
+
+    // Initialize multiple specialized agents
     const agents = [
-      new PortfolioExtractionAgent(),
-      new FinancialMetricsAgent(),
-      new RiskAnalysisAgent(),
-      new PerformanceAnalysisAgent(),
-      new ComplianceAgent(),
+      new PortfolioExtractionAgent({
+        agentId: process.env.PORTFOLIO_EXTRACTION_AGENT_ID,
+        orchestrator: orchestrator,
+      }),
+      new FinancialMetricsAgent({
+        agentId: process.env.FINANCIAL_METRICS_AGENT_ID,
+        orchestrator: orchestrator,
+      }),
+      new RiskAnalysisAgent({
+        agentId: process.env.RISK_ANALYSIS_AGENT_ID,
+        orchestrator: orchestrator,
+      }),
+      new PerformanceAnalysisAgent({
+        agentId: process.env.PERFORMANCE_ANALYSIS_AGENT_ID,
+        orchestrator: orchestrator,
+      }),
+      new ComplianceAgent({
+        agentId: process.env.COMPLIANCE_AGENT_ID,
+        orchestrator: orchestrator,
+      }),
     ];
 
-    // Execute agents in parallel
+    // Execute agents in parallel using ADK orchestration
     const agentPromises = agents.map((agent) =>
       agent.process(document.markdownContent, document.documentType)
     );
@@ -477,7 +502,7 @@ export const orchestrateExtraction = action({
       extractionType: "comprehensive",
       extractedData: aggregatedResult,
       confidenceScore: Math.min(...results.map((r) => r.confidence)),
-      agentUsed: "multi-agent-orchestrator",
+      agentUsed: "google-adk-multi-agent-orchestrator",
     });
   },
 });
@@ -1091,7 +1116,7 @@ jobs:
 
 - [ ] Document upload system
 - [ ] Mistral OCR integration
-- [ ] Claude Agent SDK setup
+- [ ] Google ADK setup
 - [ ] Multi-agent orchestration
 - [ ] Data extraction pipeline
 

@@ -343,10 +343,10 @@ interface ExtractionResult {
 }
 ```
 
-### AI Agent Entity
+### Google ADK Agent Entity
 
 ```typescript
-interface AIAgent {
+interface GoogleADKAgent {
   id: string;
   name: string;
   type: "extraction" | "analysis" | "validation" | "intelligence";
@@ -359,6 +359,9 @@ interface AIAgent {
     lastUpdated: Date;
   };
   configuration: {
+    projectId: string;
+    location: string;
+    agentId: string;
     model: string;
     parameters: any;
     trainingData: string[];
